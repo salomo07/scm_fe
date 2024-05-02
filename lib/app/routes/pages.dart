@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:scm_fe/app/modules/profile/views/profile_v.dart';
 import 'package:scm_fe/env.dart';

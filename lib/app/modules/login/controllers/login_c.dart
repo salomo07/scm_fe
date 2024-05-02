@@ -51,14 +51,14 @@ class LoginController extends GetxController {
     onChange(datePicked!);
     return datePicked;
   }
-  void login(){   
+  Future<void> login() async {   
     authController.login("qweqsadasdadsfasdfsdf"); 
     // Get.rootDelegate.offNamed(Paths.home);
-    Future.delayed(const Duration(seconds: 1),() {
-      final thenTo = Get.rootDelegate.currentConfiguration!.currentPage!.parameters?['then'];
-      Get.rootDelegate.offNamed(thenTo??Paths.home);
-    },);
-    
+    // Future.delayed(const Duration(seconds: 1),() async {
+    //   final thenTo = Get.rootDelegate.currentConfiguration!.currentPage!.parameters?['then'];
+    //   await Get.rootDelegate.offNamed(Paths.home);
+    // },);
+    await Get.rootDelegate.offNamed(Paths.login);
     // Get.rootDelegate.offNamed(thenTo ?? Paths.home);
   }
 }
