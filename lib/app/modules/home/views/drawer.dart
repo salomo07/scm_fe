@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:scm_fe/app/middleware/auth_controller.dart';
 
 import '../../../../const/text_style.dart';
 import '../controllers/home_c.dart';
 
 class DrawerWidget extends GetView<HomeController> {
-  const DrawerWidget({super.key});
-
+  DrawerWidget({super.key});
+  final AuthController authController =Get.find();
   
   @override
   Widget build(BuildContext context) {
+    // return Text("sss");
     return Drawer(
       child: Obx(() => SizedBox(
         width: 257,
@@ -23,12 +25,13 @@ class DrawerWidget extends GetView<HomeController> {
                 alignment: Alignment.center,
                 child: SizedBox(                    
                   width: 233,
-                  // height: heightMenu,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const Gap(25),
                       Text("Home",style: poppinsTextFont.copyWith(color:Colors.black.withOpacity(0.7),fontSize: 14,fontWeight: FontWeight.w800),),
+                      const Gap(10),
                       InkWell(
                         onTap: () {
                           controller.toDashboard();
@@ -70,7 +73,7 @@ class DrawerWidget extends GetView<HomeController> {
                       const Gap(10),
                       const Divider(),
                       SizedBox(
-                        height: 400,
+                        height: 300,
                         child: ListView(
                           children: controller.menuWidget,
                         ),
@@ -80,37 +83,31 @@ class DrawerWidget extends GetView<HomeController> {
                 ),
               ),
               const Gap(20),
-              InkWell(
-                onTap: () {
-
-                },
-                child: Container(
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius:const BorderRadius.all(Radius.circular(5)),
-                    color: controller.idMenuSelected.value=="000"? defaultColor:null,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [ 
-                        Icon(Icons.dashboard,size: 30,color:controller.idMenuSelected.value=="000"?whiteColor:defaultColor,),
-                        const Gap(20),
-                        Text("Logout",style: poppinsTextFont.copyWith(color:Colors.red,fontSize: 16),)
-                      ],
-                    ),
-                  ),
-                ),
-              ),
               Align(
                 alignment: Alignment.center,
                 child: InkWell(
                   onTap: () {
-                    
+                    authController.logOut();
                   },
-                  child: Text("Logout",style: poppinsTextFont.copyWith(color:Colors.red.withOpacity(0.7),fontSize: 14,fontWeight: FontWeight.w800),)
+                  child: Container(
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      borderRadius:BorderRadius.all(Radius.circular(5)),
+                      color: Colors.transparent,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [ 
+                          Icon(Icons.exit_to_app_outlined,size: 20,color:defaultColor,),
+                          const Gap(20),
+                          Text("Logout",style: poppinsTextFont.copyWith(color:Colors.red,fontSize: 16),)
+                        ],
+                      ),
+                    ),
+                  )
                 ),
               ),
             ],

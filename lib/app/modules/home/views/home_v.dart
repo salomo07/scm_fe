@@ -47,32 +47,29 @@ class HomeView extends GetView<HomeController> {
                   )
                 ],
               ),
-              drawer:!isDesktop(Get.width)? const SizedBox(width: 257,child: DrawerWidget()):null,
-              body: Row(
-                children: [
-                  isDesktop(Get.width)? Expanded(
-                    flex: 1,
-                    child: Container(
-                      // decoration: BoxDecoration(
-                      //   color: defaultColor,
-                      //   borderRadius:const BorderRadius.only(topRight:Radius.circular(20),bottomRight:Radius.circular(20)),
-                      // ),
+              drawer:!isDesktop(Get.width)? SizedBox(width: 257,child: DrawerWidget()):null,
+              body: Container(
+                color: backgroundRoot,
+                child: Row(
+                  children: [
+                    isDesktop(Get.width)? Container(
                       width: 257,
                       child: DrawerWidget(),
-                    )
-                  ):const Text(""),
-                  Expanded(
-                    flex: 4,
-                    child :GetRouterOutlet.builder(
-                      builder: (context, delegate, currentRoute) {
-                        return GetRouterOutlet(
-                          initialRoute: Paths.dashboard,
-                          key: Get.nestedKey(Paths.home)
-                        );
-                      },
-                    )
-                  ),
-                ],
+                    ):
+                    const Center(),
+                    Expanded(
+                      flex: 4,
+                      child :GetRouterOutlet.builder(
+                        builder: (context, delegate, currentRoute) {
+                          return GetRouterOutlet(
+                            initialRoute: Paths.dashboard,
+                            key: Get.nestedKey(Paths.home)
+                          );
+                        },
+                      )
+                    ),
+                  ],
+                ),
               ),
             );
           },

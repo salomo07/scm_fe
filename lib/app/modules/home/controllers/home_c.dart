@@ -42,7 +42,7 @@ class HomeController extends GetxController {
     getMenus();
     super.onReady();
   }
-
+  
   void getMenus() {
     List<Widget> menus = [];
     listMenu.value = menuFromJson(json.encode(dataMenu));
