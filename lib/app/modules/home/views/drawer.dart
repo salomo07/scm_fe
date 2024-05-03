@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -76,6 +77,40 @@ class DrawerWidget extends GetView<HomeController> {
                       )                     
                     ],
                   ),
+                ),
+              ),
+              const Gap(20),
+              InkWell(
+                onTap: () {
+
+                },
+                child: Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius:const BorderRadius.all(Radius.circular(5)),
+                    color: controller.idMenuSelected.value=="000"? defaultColor:null,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [ 
+                        Icon(Icons.dashboard,size: 30,color:controller.idMenuSelected.value=="000"?whiteColor:defaultColor,),
+                        const Gap(20),
+                        Text("Logout",style: poppinsTextFont.copyWith(color:Colors.red,fontSize: 16),)
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: InkWell(
+                  onTap: () {
+                    
+                  },
+                  child: Text("Logout",style: poppinsTextFont.copyWith(color:Colors.red.withOpacity(0.7),fontSize: 14,fontWeight: FontWeight.w800),)
                 ),
               ),
             ],

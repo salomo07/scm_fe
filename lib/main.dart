@@ -8,10 +8,11 @@ import 'package:responsive_screen_utils/responsive_screen_utils.dart';
 import 'package:scm_fe/app/routes/pages.dart';
 import 'package:scm_fe/const/text_style.dart';
 import 'package:scm_fe/env.dart';
-
+import 'package:url_strategy/url_strategy.dart';
 import 'app/middleware/auth_controller.dart';
 
 void main() async {
+  setPathUrlStrategy();
   Intl.defaultLocale = 'id_ID';
   if (!kIsWeb) {
     await Hive.initFlutter();

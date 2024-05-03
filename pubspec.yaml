@@ -26,6 +26,7 @@ dependencies:
   responsive_screen_utils: ^0.0.2
   flutter_localizations:
     sdk: flutter
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:
