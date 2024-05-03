@@ -11,10 +11,17 @@ class EnsureAuthMiddleware extends GetMiddleware {
     // but it's preferable to make this method fast
     // await Future.delayed(Duration(milliseconds: 500));
     print("EnsureAuthMiddleware ${!authController.isLogged.value} ${route.currentPage!.name}");
-    if (!authController.isLogged.value) {
+    var thenTo;
+    if(Get.rootDelegate.currentConfiguration!=null&&Get.rootDelegate.currentConfiguration!.currentPage!.parameters?['then']!=null)
+    {
+      thenTo = Get.rootDelegate.currentConfiguration!.currentPage!.parameters?['then'];
+    }
+    if (!authController.isLogged.value && thenTo!=null) {
+      print("if");
       final newRoute = Paths.LOGIN_THEN(route.currentPage!.name);
       return GetNavConfig.fromRoute(newRoute);
     }
+    print("Else");
     return await super.redirectDelegate(route);
   }
 }
