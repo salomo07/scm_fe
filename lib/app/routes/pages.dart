@@ -11,6 +11,7 @@ import '../modules/home/bindings/home_b.dart';
 import '../modules/home/views/home_v.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_v.dart';
+import '../modules/login/views/logintest_v.dart';
 import '../modules/product_details/bindings/product_details_binding.dart';
 import '../modules/product_details/views/product_details_view.dart';
 import '../modules/products/bindings/products_binding.dart';
@@ -38,24 +39,24 @@ class Pages {
       children: [        
         GetPage(          
           name: Paths.login,
-          middlewares: [
-            EnsureNotAuthedMiddleware(),
-          ],
-          page: () => const LoginView(),
+          // middlewares: [
+          //   EnsureNotAuthedMiddleware(),
+          // ],
+          page: () => const LoginViewTest(),
           bindings: LoginBinding().dependencies(),
-          // children: [
-          //   GetPage(
-          //     name: Paths.loginform, 
-          //     page: () => const LoginForm(),
-          //     bindings: LoginBinding().dependencies(),
-          //     transition: Transition.rightToLeftWithFade
-          //   ),
-          //   GetPage(
-          //     name: Paths.registerform, 
-          //     page: () => const RegistrationForm(),
-          //     transition: Transition.leftToRightWithFade
-          //   ),
-          // ]
+          children: [
+            GetPage(
+              name: Paths.loginform, 
+              page: () => const LoginForm(),
+              bindings: LoginBinding().dependencies(),
+              transition: Transition.rightToLeftWithFade
+            ),
+            GetPage(
+              name: Paths.registerform, 
+              page: () => const RegistrationForm(),
+              transition: Transition.leftToRightWithFade
+            ),
+          ]
         ),
         GetPage(
           name: Paths.dashboard,

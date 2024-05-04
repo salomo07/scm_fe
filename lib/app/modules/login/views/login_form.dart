@@ -1,4 +1,4 @@
-part of 'login_v.dart';
+part of 'logintest_v.dart';
 class LoginForm extends GetView<LoginController> {
   const LoginForm({super.key});
 
@@ -6,7 +6,7 @@ class LoginForm extends GetView<LoginController> {
   Widget build(BuildContext context) {
     Random random = Random();
     var maxValRandom = 530;
-    // return Text("FormLogin");
+    return Text("FormLogin");
     return LayoutBuilder(
       builder: (context, constraints) {
         return Obx(() => Padding(

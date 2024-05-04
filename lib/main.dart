@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: const [
           Locale('id', 'ID'),
         ],
-        title: "SCM",
+        title: appName,
         initialBinding: BindingsBuilder.put(
           () => AuthController(),
         ),

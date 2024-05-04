@@ -27,10 +27,15 @@ class EnsureAuthMiddleware extends GetMiddleware {
 class EnsureNotAuthedMiddleware extends GetMiddleware {
   @override
   Future<GetNavConfig?> redirectDelegate(GetNavConfig route) async {
-    AuthController authManager = Get.find();
-    if (authManager.isLogged.value && Get.rootDelegate.currentConfiguration==null) {
+    AuthController authController = Get.find();
+    print("EnsureNotAuthedMiddleware ${authController.isLogged.value} ${Get.rootDelegate.currentConfiguration}");
+    if (authController.isLogged.value && Get.rootDelegate.currentConfiguration==null) {
       return GetNavConfig.fromRoute(Paths.dashboard);
+    }else if(!authController.isLogged.value && Get.rootDelegate.currentConfiguration==null){
+      print("Kedua");
+      return GetNavConfig.fromRoute(Paths.login);
     }
+    print("Ketiga");
     return await super.redirectDelegate(route);
   }
 }
