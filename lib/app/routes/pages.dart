@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scm_fe/app/modules/administrator/bindings/adm_b.dart';
 import 'package:scm_fe/app/modules/profile/views/profile_v.dart';
 import 'package:scm_fe/env.dart';
 
@@ -107,7 +108,8 @@ class Pages {
             ),
             GetPage(
               name: Paths.administrator_role,
-              page: () =>const AdmRoleView(),
+              page: () => AdmRoleView(),
+              bindings: AdministratorBinding().dependencies(),
               transition: Transition.size
             ),
             GetPage(
