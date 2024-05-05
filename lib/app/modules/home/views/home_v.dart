@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -52,7 +51,7 @@ class HomeView extends GetView<HomeController> {
                 color: backgroundRoot,
                 child: Row(
                   children: [
-                    isDesktop(Get.width)? Container(
+                    isDesktop(Get.width)? SizedBox(
                       width: 257,
                       child: DrawerWidget(),
                     ):

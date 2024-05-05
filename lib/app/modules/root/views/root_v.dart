@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
-import '../../../../const/common_func.dart';
-import '../../../../const/text_style.dart';
 import '../../../routes/pages.dart';
-import '../../home/views/drawer.dart';
 import '../controllers/root_c.dart';
 
 

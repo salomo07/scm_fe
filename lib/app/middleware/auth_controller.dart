@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scm_fe/app/routes/pages.dart';
 
@@ -16,7 +17,9 @@ class AuthController extends GetxController {
   void logOut() {
     isLogged.value = false;
     removeToken();
-    Get.rootDelegate.offNamed(Paths.login);
+    var token=getToken();
+    print("token $token");
+    Get.rootDelegate.offAndToNamed(Paths.login);
   }
 
   void login(String? token) async {
@@ -27,6 +30,7 @@ class AuthController extends GetxController {
 
   void checkLoginStatus() {    
     final token = getToken();
+    print("token $token");
     if (token != null) {
       isLogged.value = true;
     }

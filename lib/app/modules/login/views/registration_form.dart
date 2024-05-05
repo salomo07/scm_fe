@@ -1,4 +1,4 @@
-part of 'logintest_v.dart';
+part of 'login_v.dart';
 
 
 class RegistrationForm extends GetView<LoginController> {

@@ -11,7 +11,6 @@ import '../modules/home/bindings/home_b.dart';
 import '../modules/home/views/home_v.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_v.dart';
-import '../modules/login/views/logintest_v.dart';
 import '../modules/product_details/bindings/product_details_binding.dart';
 import '../modules/product_details/views/product_details_view.dart';
 import '../modules/products/bindings/products_binding.dart';
@@ -39,10 +38,10 @@ class Pages {
       children: [        
         GetPage(          
           name: Paths.login,
-          // middlewares: [
-          //   EnsureNotAuthedMiddleware(),
-          // ],
-          page: () => const LoginViewTest(),
+          middlewares: [
+            EnsureNotAuthedMiddleware(),
+          ],
+          page: () => const LoginView(),
           bindings: LoginBinding().dependencies(),
           children: [
             GetPage(
@@ -60,6 +59,9 @@ class Pages {
         ),
         GetPage(
           name: Paths.dashboard,
+          middlewares: [
+            EnsureAuthedMiddleware(),
+          ],
           page: () => const DashboardView(),
           bindings: DashboardBinding().dependencies(),
         ),
@@ -69,19 +71,24 @@ class Pages {
           page: () => const HomeView(),
           bindings: HomeBinding().dependencies(),
           middlewares: [
-            EnsureAuthMiddleware(),
+            EnsureAuthedMiddleware(),
           ],
           title: appName,
           children: [
-            GetPage(
-              name: Paths.notfound,
-              page: () => const DefaultView()
-            ),
             GetPage(
               name: Paths.dashboard,
               page: () => const DashboardView(),
               bindings: DashboardBinding().dependencies(),
             ),
+            GetPage(
+              name: Paths.notfound,
+              page: () => const DefaultView()
+            ),
+            // GetPage(
+            //   name: Paths.dashboard,
+            //   page: () => const DashboardView(),
+            //   bindings: DashboardBinding().dependencies(),
+            // ),
             GetPage(
               name: '/default',
               page: () => const DefaultView(),
