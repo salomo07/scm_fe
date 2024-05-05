@@ -53,13 +53,13 @@ var dataMenu=[
         "idMenu": "submenu004",
         "label": "Administrator Role",
         "iconCode":"administrator",
-        "path": "/administrator/role",
+        "path": "/home/administrator/role",
       },
       {
         "idMenu": "submenu005",
         "label": "Administrator User",
         "iconCode":"administrator",
-        "path": "/administrator/user",
+        "path": "/home/administrator/user",
       }
     ],
   }

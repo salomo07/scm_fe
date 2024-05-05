@@ -11,12 +11,14 @@ class EnsureAuthedMiddleware extends GetMiddleware {
     var thenTo;
     if(Get.rootDelegate.currentConfiguration!=null&&Get.rootDelegate.currentConfiguration!.currentPage!.parameters?['then']!=null)
     {
+      print("1");
       thenTo = Get.rootDelegate.currentConfiguration!.currentPage!.parameters?['then'];
-    }
-    if (!authController.isLogged.value && thenTo!=null) {
+    }else if (!authController.isLogged.value && thenTo!=null) {
+      print("2");
       final newRoute = Paths.LOGIN_THEN(route.currentPage!.name);
       return GetNavConfig.fromRoute(newRoute);
     }
+    print("3");
     return await super.redirectDelegate(route);
   }
 }
@@ -33,7 +35,7 @@ class EnsureNotAuthedMiddleware extends GetMiddleware {
       print("Kedua");
       return GetNavConfig.fromRoute(Paths.login);
     }
-    print("Ketiga");
+    print("Ketiga ${route}");
     return await super.redirectDelegate(route);
   }
 }

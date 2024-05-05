@@ -4,6 +4,7 @@ import 'package:scm_fe/app/modules/profile/views/profile_v.dart';
 import 'package:scm_fe/env.dart';
 
 import '../middleware/auth_middleware.dart';
+import '../modules/administrator/views/adm_role_v.dart';
 import '../modules/dashboard/bindings/dashboard_b.dart';
 import '../modules/dashboard/views/dashboard_v.dart';
 import '../modules/dashboard/views/default_v copy.dart';
@@ -19,7 +20,7 @@ import '../modules/profile/bindings/profile_b.dart';
 import '../modules/root/bindings/root_b.dart';
 import '../modules/root/views/root_v.dart';
 import '../modules/settings/bindings/settings_b.dart';
-import '../modules/settings/views/settings_view.dart';
+import '../modules/settings/views/settings_v.dart';
 
 part 'routes.dart';
 
@@ -84,11 +85,6 @@ class Pages {
               name: Paths.notfound,
               page: () => const DefaultView()
             ),
-            // GetPage(
-            //   name: Paths.dashboard,
-            //   page: () => const DashboardView(),
-            //   bindings: DashboardBinding().dependencies(),
-            // ),
             GetPage(
               name: '/default',
               page: () => const DefaultView(),
@@ -108,6 +104,11 @@ class Pages {
               name: Paths.settings, 
               page: () => Text("Setting"),
               transition: Transition.rightToLeftWithFade
+            ),
+            GetPage(
+              name: Paths.administrator_role,
+              page: () =>const AdmRoleView(),
+              transition: Transition.size
             ),
             GetPage(
               name: Paths.products,
@@ -139,7 +140,7 @@ class Pages {
           bindings: [
             SettingsBinding(),
           ],
-        ),
+        )
       ],
     ),
   ];

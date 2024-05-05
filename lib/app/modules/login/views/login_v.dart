@@ -26,7 +26,6 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    print("LoginViewx");
     return LayoutBuilder(
       builder: (context, constraints) {
         if (isMobile(Get.width)) {} 

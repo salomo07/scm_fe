@@ -19,7 +19,6 @@ class DashboardView extends GetView<DashboardController> {
     double heightCard = 300;
     print("DashboardView");
     return Container(
-      color: backgroundRoot,
       width: Get.width,
       height: double.infinity,
       child: Padding(
