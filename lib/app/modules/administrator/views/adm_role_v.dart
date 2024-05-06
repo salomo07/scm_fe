@@ -19,7 +19,7 @@ class AdmRoleView extends GetView<AdministratorController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: backgroundRoot,
+      color: Colors.transparent,
       width: double.infinity,
       height: double.infinity,
       child: Padding(

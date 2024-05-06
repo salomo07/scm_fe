@@ -21,8 +21,6 @@ class HomeController extends GetxController {
   Rx<Menu> selectedMenu = Menu().obs;
   Rx<Menu> selectedSubMenu = Menu().obs;
   Rx<String> idMenuSelected = "".obs;
-  // Rx<String> selectedPath = "${Paths.home}${Paths.dashboard}".obs;
-  Rx<String> selectedPath = "/home/settings".obs;
   Rx<String> idSubMenuSelected = "".obs;
   RxList<Menu> listMenu = <Menu>[].obs;
   RxList<Widget> menuWidget = <Widget>[].obs;
@@ -53,6 +51,7 @@ class HomeController extends GetxController {
     menuWidget.value = menus;
   }
   toDashboard(){
+    selectedMenu.value=Menu(idMenu: '000',path: Paths.dashboard);
     Get.rootDelegate.toNamed(Paths.dashboard);
   }
   Widget createWidgetMenus(Menu menu) {
@@ -61,6 +60,7 @@ class HomeController extends GetxController {
       onTap: () { //MenuClick
         if(!isMenuHaveSubmenu){
           print("MenuClick");
+          selectedMenu.value=menu;
           Get.rootDelegate.toNamed(menu.path!);
         }
         if(menu.path!=null){

@@ -53,7 +53,7 @@ class HomeView extends GetView<HomeController> {
                   color: backgroundRoot,
                   child: Row(
                     children: [
-                      isDesktop(Get.width)? Container(
+                      isDesktop(Get.width)? SizedBox(
                         width: 257,
                         child: DrawerWidget(),
                       ):
