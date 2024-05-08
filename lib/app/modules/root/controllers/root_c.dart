@@ -13,7 +13,6 @@ class RootController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-    print("Ini root ${authController.isLogged.value}");
     super.onInit();
   }
 

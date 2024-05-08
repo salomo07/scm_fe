@@ -1,0 +1,1 @@
+const String urlIdm = "http://localhost:8080/idm/api/";

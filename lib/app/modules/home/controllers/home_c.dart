@@ -24,7 +24,8 @@ class HomeController extends GetxController {
   Rx<String> idSubMenuSelected = "".obs;
   RxList<Menu> listMenu = <Menu>[].obs;
   RxList<Widget> menuWidget = <Widget>[].obs;
-  Rx<String> anchorPath="/".obs;
+
+  
   final AuthController authController = Get.find();
 
   @override
@@ -38,6 +39,7 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     getMenus();
+    idMenuSelected.value="000";
     super.onReady();
   }
   
@@ -51,6 +53,7 @@ class HomeController extends GetxController {
     menuWidget.value = menus;
   }
   toDashboard(){
+    idMenuSelected.value="000";
     selectedMenu.value=Menu(idMenu: '000',path: Paths.dashboard);
     Get.rootDelegate.toNamed(Paths.dashboard);
   }
@@ -61,12 +64,12 @@ class HomeController extends GetxController {
         if(!isMenuHaveSubmenu){
           print("MenuClick");
           selectedMenu.value=menu;
+          idMenuSelected.value=menu.idMenu!;
           Get.rootDelegate.toNamed(menu.path!);
         }
         if(menu.path!=null){
           selectedMenu.value = menu;
-          idSubMenuSelected.value = "";
-          
+          idSubMenuSelected.value = "";          
           selectedSubMenu.value =Menu();    
           idSubMenuSelected.value = "";
         }else if(menu.path==null){  //Jika punya submenu

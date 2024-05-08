@@ -30,6 +30,10 @@ class LoginController extends GetxController {
   @override
   void onReady() {
     screenWidth.value=Get.width;  
+    print(authController.isLogged.value);
+    if (authController.isLogged.value) {
+      Get.rootDelegate.offNamed(Paths.home);
+    }
     super.onReady();
   }
 
