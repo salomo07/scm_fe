@@ -95,7 +95,7 @@ class AdmRoleView extends GetView<AdministratorController> {
                             children: [
                               Row(
                                 children: [ 
-                                  Container(
+                                  const SizedBox(
                                     width: 160,
                                     child:Text("Name") ,
                                   ),

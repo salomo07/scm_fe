@@ -14,7 +14,6 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    print("HomeView");
     return GetRouterOutlet.builder(
       routerDelegate: Get.rootDelegate,
       builder: (context, delegate, currentRoute) {

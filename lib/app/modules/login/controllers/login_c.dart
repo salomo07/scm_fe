@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
+
 import '../../../middleware/auth_controller.dart';
 import '../../../routes/pages.dart';
+// import 'auth_c.dart';
 
 class LoginController extends GetxController {
   AuthController authController=AuthController();
@@ -20,7 +22,7 @@ class LoginController extends GetxController {
   RxBool isRememberMe =false.obs;
   Rx<double> screenWidth=(Get.width).obs;
   Rx<double> halfScreenWidth=(Get.width/2).obs;
-  Rx<String> selectedForm="${Paths.dashboard}".obs;
+  Rx<String> selectedForm=Paths.dashboard.obs;
   final List<String> imgList = [
     'images/background/landing1.jpg',
     'images/background/landing2.jpg',
@@ -30,7 +32,6 @@ class LoginController extends GetxController {
   @override
   void onReady() {
     screenWidth.value=Get.width;  
-    print(authController.isLogged.value);
     if (authController.isLogged.value) {
       Get.rootDelegate.offNamed(Paths.home);
     }

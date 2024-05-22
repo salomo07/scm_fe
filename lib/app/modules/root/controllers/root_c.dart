@@ -8,7 +8,6 @@ import 'package:scm_fe/app/middleware/auth_controller.dart';
 import '../../../../const/datadummy.dart';
 import '../../../../const/text_style.dart';
 import '../../../../models/menu.dart';
-AuthController authController=Get.find();
 class RootController extends GetxController {
   final count = 0.obs;
   @override

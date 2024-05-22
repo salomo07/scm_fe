@@ -107,7 +107,7 @@ class Pages {
               transition: Transition.rightToLeftWithFade
             ),
             GetPage(
-              name: Paths.administrator_role,
+              name: Paths.administratorRole,
               page: () => AdmRoleView(),
               bindings: AdministratorBinding().dependencies(),
               transition: Transition.size

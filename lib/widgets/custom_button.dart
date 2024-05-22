@@ -38,10 +38,10 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed:enable==true? onPressed:null,
         style: ElevatedButton.styleFrom(
-          disabledBackgroundColor: colorButton==null?defaultColor:colorButton,
+          disabledBackgroundColor: colorButton ?? defaultColor,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius)),
-          backgroundColor: colorButton==null?defaultColor:colorButton,
+          backgroundColor: colorButton ?? defaultColor,
           side: BorderSide(color: colorBorder)
         ),
         child:icon==null?

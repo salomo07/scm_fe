@@ -143,7 +143,7 @@ class RegistrationForm extends GetView<LoginController> {
                   ),
                   const Gap(50),
                   Center(
-                    child: Text("Copyright ${copyRight}",style: poppinsTextFont.copyWith(color: greyColor)),
+                    child: Text("Copyright $copyRight",style: poppinsTextFont.copyWith(color: greyColor)),
                   )
                 ],
               ),

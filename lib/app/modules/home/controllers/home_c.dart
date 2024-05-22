@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:scm_fe/app/middleware/auth_controller.dart';
 
 import '../../../../const/datadummy.dart';
 import '../../../../const/text_style.dart';
 import '../../../../models/menu.dart';
+import '../../../middleware/auth_controller.dart';
 import '../../../routes/pages.dart';
+// import '../../auth/controllers/auth_c.dart';
 
 class HomeController extends GetxController {
   Rx<double> heightUserImage = 45.0.obs;
@@ -26,7 +27,7 @@ class HomeController extends GetxController {
   RxList<Widget> menuWidget = <Widget>[].obs;
 
   
-  final AuthController authController = Get.find();
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   void onInit() {
@@ -46,10 +47,10 @@ class HomeController extends GetxController {
   void getMenus() {
     List<Widget> menus = [];
     listMenu.value = menuFromJson(json.encode(dataMenu));
-    listMenu.forEach((e) {
+    for (var e in listMenu) {
       menus.add(createWidgetMenus(e));
       menus.add(const Divider());
-    });
+    }
     menuWidget.value = menus;
   }
   toDashboard(){
@@ -62,7 +63,6 @@ class HomeController extends GetxController {
     return InkWell(
       onTap: () { //MenuClick
         if(!isMenuHaveSubmenu){
-          print("MenuClick");
           selectedMenu.value=menu;
           idMenuSelected.value=menu.idMenu!;
           Get.rootDelegate.toNamed(menu.path!);
@@ -162,7 +162,7 @@ class HomeController extends GetxController {
       )
     ];
     lineMenu.add(const Gap(5));
-    menu.subMenu!.forEach((element) {
+    for (var element in menu.subMenu!) {
       if (idMenuSelected.value == menu.idMenu) {
         lineMenu.add(
           GetRouterOutlet.builder(
@@ -172,9 +172,6 @@ class HomeController extends GetxController {
                   idSubMenuSelected.value=element.idMenu!;
                   selectedSubMenu.value=element;
                   Get.rootDelegate.toNamed(element.path!);
-                  // print(element.path!);
-                  // Get.toNamed(element.path!);
-                  // updateCurrentRoute(element.path!);
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -204,7 +201,7 @@ class HomeController extends GetxController {
           )
         );
       }
-    });
+    }
     return lineMenu;
   }
 }

@@ -133,6 +133,7 @@ class LoginForm extends GetView<LoginController> {
                     icon:Icon(Icons.login,color: whiteColor) ,
                     width: double.infinity,
                     text: "Log In",
+                    
                     textStyle: poppinsTextFont.copyWith(color: whiteColor),
                     onPressed: () {
                       controller.login();

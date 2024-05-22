@@ -18,8 +18,8 @@ abstract class Paths {
   static const productDetails = '/products/details';
   static const profile ='/profile';
 
-  static const administrator_role = '/administrator/role';
-  static const administrator_user ='/administrator/user';
+  static const administratorRole = '/administrator/role';
+  static const administratorUser ='/administrator/user';
 
   static const login = '/login';
   static const loginform = '$login/loginform';

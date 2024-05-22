@@ -10,7 +10,6 @@ class RootView extends GetView<RootController> {
 
   @override
   Widget build(BuildContext context) {
-    print("RootView");
     return GetRouterOutlet.builder(
       routerDelegate: Get.delegate(),
       builder: (context, delegate, currentRoute) {

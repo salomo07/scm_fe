@@ -6,11 +6,6 @@ import '../../../../const/text_style.dart';
 
 class AdministratorController extends GetxController {
 
-  @override
-  void onReady() { 
-    super.onReady();
-  }
-
   List<PlutoRow> generateRow(){
     List<PlutoRow> listRow=[];
       // for (int i = 0; i < [].length; i++) {
