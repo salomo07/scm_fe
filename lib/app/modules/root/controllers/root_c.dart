@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:scm_fe/app/middleware/auth_controller.dart';
 
 import '../../../../const/datadummy.dart';
 import '../../../../const/text_style.dart';

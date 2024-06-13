@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:scm_fe/const/text_style.dart';
+
+import '../const/text_style.dart';
 
 class CustomTextFormField extends StatefulWidget {
   CustomTextFormField({

@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:hive/hive.dart';
-import 'package:scm_fe/env.dart';
+
+import '../env.dart';
 
 bool isMobile(width)=> width< 850; 
 bool isTablet(width)=> width < 1100 && width>= 850;

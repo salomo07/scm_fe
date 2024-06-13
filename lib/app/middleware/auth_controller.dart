@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:scm_fe/app/routes/pages.dart';
-import 'package:scm_fe/const/config_url.dart';
-import 'package:scm_fe/services/service_handler.dart';
+import 'package:furniro_fe/app/routes/pages.dart';
+import 'package:furniro_fe/const/config_url.dart';
+import 'package:furniro_fe/services/service_handler.dart';
 
 import '../../const/common_func.dart';
 

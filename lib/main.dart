@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:responsive_screen_utils/responsive_screen_utils.dart';
-import 'package:scm_fe/app/routes/pages.dart';
-import 'package:scm_fe/const/text_style.dart';
-import 'package:scm_fe/env.dart';
+import 'package:furniro_fe/app/routes/pages.dart';
+import 'package:furniro_fe/const/text_style.dart';
+import 'package:furniro_fe/env.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'app/middleware/auth_controller.dart';
 

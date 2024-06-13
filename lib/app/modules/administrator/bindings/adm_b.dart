@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
-import 'package:scm_fe/app/modules/administrator/controllers/adm_role_c.dart';
-import 'package:scm_fe/app/modules/home/controllers/home_c.dart';
+
+import '../../home/controllers/home_c.dart';
+import '../controllers/adm_role_c.dart';
 
 class AdministratorBinding extends Bindings {
   @override

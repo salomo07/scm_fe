@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scm_fe/const/text_style.dart';
 
+import '../const/text_style.dart';
 import 'custom_button.dart';
 
 class CustomDialog extends StatefulWidget {

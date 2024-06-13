@@ -8,9 +8,9 @@ import 'package:form_validator/form_validator.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:scm_fe/env.dart';
 import '../../../../const/common_func.dart';
 import '../../../../const/text_style.dart';
+import '../../../../env.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_textformfield.dart';
 import '../../../routes/pages.dart';

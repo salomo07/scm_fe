@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:pluto_grid/pluto_grid.dart';
-import 'package:scm_fe/app/modules/administrator/controllers/adm_role_c.dart';
-import 'package:scm_fe/app/modules/home/controllers/home_c.dart';
 
 import '../../../../const/text_style.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_dialog.dart';
 import '../../../../widgets/custom_plutogrid.dart';
 import '../../../../widgets/custom_textformfield.dart';
+import '../../home/controllers/home_c.dart';
+import '../controllers/adm_role_c.dart';
 
 
 class AdmRoleView extends GetView<AdministratorController> {

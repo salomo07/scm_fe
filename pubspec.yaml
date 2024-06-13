@@ -1,4 +1,4 @@
-name: scm_fe
+name: furniro_fe
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -27,6 +27,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   url_strategy: ^0.2.0
+  fluttertoast: ^8.2.6
 
 dev_dependencies:
   flutter_test:
@@ -41,3 +42,6 @@ flutter:
     - assets/images/background/
     - assets/images/user/
     - assets/animation/
+    - assets/furniro/images/background/
+    - assets/furniro/images/logo/
+    - assets/furniro/images/products/

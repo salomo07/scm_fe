@@ -19,6 +19,7 @@ class HomeController extends GetxController {
   RxString fullname = "Korban Tabrak Lari".obs;
   RxString rolename = "Web Developer".obs;
   RxBool isSearching = false.obs;
+  RxBool isDrawerOpened = true.obs;
   Rx<Menu> selectedMenu = Menu().obs;
   Rx<Menu> selectedSubMenu = Menu().obs;
   Rx<String> idMenuSelected = "".obs;

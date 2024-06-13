@@ -8,7 +8,13 @@ abstract class Paths {
   static const home = '/home';
   
   static const notfound = '/404';
+  static const about = '$home/about';
+
+  static const shop = '$home/shop';
+  static const shopList = '/shop-list';
+
   static const dashboard = '$home/dashboard';
+  static const dashboard2 = '$home/dashboard2';
 
 
   static const transaction = '$home/transaction';

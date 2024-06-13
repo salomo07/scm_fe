@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/settings_controller.dart';
+import '../controllers/settings_c.dart';
+
 
 class SettingsView extends GetView<SettingsController> {
   const SettingsView({super.key});

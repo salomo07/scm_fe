@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:scm_fe/const/config_url.dart';
-import 'package:scm_fe/services/service_handler.dart';
 
+import '../const/config_url.dart';
 import '../models/common_response.dart';
+import 'service_handler.dart';
 
 class AuthService extends GetxService {
   static AuthService get to => Get.find();

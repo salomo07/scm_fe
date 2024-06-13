@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:scm_fe/app/middleware/auth_controller.dart';
+import '../middleware/auth_controller.dart';
 import '../routes/pages.dart';
 
 class EnsureAuthedMiddleware extends GetMiddleware {
@@ -18,7 +18,7 @@ class EnsureAuthedMiddleware extends GetMiddleware {
       final newRoute = Paths.LOGIN_THEN(route.currentPage!.name);
       return GetNavConfig.fromRoute(newRoute);
     }
-    print("3");
+    print("3 ${route.currentPage!.name!}");
     return await super.redirectDelegate(route);
   }
 }

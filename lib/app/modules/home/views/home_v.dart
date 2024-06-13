@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:scm_fe/app/modules/home/views/drawer.dart';
-import 'package:scm_fe/app/routes/pages.dart';
 
 import '../../../../const/common_func.dart';
 import '../../../../const/text_style.dart';
+import '../../../routes/pages.dart';
 import '../controllers/home_c.dart';
+import 'drawer.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -62,7 +62,7 @@ class HomeView extends GetView<HomeController> {
                         child :GetRouterOutlet.builder(
                           builder: (context, delegate, currentRoute) {
                             return GetRouterOutlet(
-                              initialRoute: Paths.dashboard,
+                              initialRoute: Paths.dashboard2,
                               key: Get.nestedKey(Paths.home)
                             );
                           },
@@ -118,7 +118,7 @@ class HomeView extends GetView<HomeController> {
       ),
     );
   }
-
+  
   Row notifBar() {
     return Row(
       // Untuk icon2, seperti notif, message, task

@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/app/modules/shop/bindings/shop_b.dart';
+import 'package:furniro_fe/app/modules/shop/views/shop_detail_v.dart';
+import 'package:furniro_fe/app/modules/shop/views/shop_v.dart';
 import 'package:get/get.dart';
-import 'package:scm_fe/app/modules/administrator/bindings/adm_b.dart';
-import 'package:scm_fe/app/modules/profile/views/profile_v.dart';
-import 'package:scm_fe/env.dart';
 
+import '../../env.dart';
 import '../middleware/auth_middleware.dart';
+import '../modules/administrator/bindings/adm_b.dart';
 import '../modules/administrator/views/adm_role_v.dart';
 import '../modules/dashboard/bindings/dashboard_b.dart';
 import '../modules/dashboard/views/dashboard_v.dart';
 import '../modules/dashboard/views/default_v copy.dart';
+import '../modules/dashboard2/bindings/dashboard2_b.dart';
+import '../modules/dashboard2/views/dashboard2_v.dart';
 import '../modules/home/bindings/home_b.dart';
+import '../modules/home/views/home2_v.dart';
 import '../modules/home/views/home_v.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_v.dart';
 import '../modules/product_details/bindings/product_details_binding.dart';
 import '../modules/product_details/views/product_details_view.dart';
-import '../modules/products/bindings/products_binding.dart';
-import '../modules/products/views/products_view.dart';
 import '../modules/profile/bindings/profile_b.dart';
+import '../modules/profile/views/profile_v.dart';
 import '../modules/root/bindings/root_b.dart';
 import '../modules/root/views/root_v.dart';
 import '../modules/settings/bindings/settings_b.dart';
@@ -59,18 +63,23 @@ class Pages {
             ),
           ]
         ),
+        // GetPage(
+        //   name: Paths.dashboard,
+        //   middlewares: [
+        //     EnsureAuthedMiddleware(),
+        //   ],
+        //   page: () => const DashboardView(),
+        //   bindings: DashboardBinding().dependencies(),
+        // ),
         GetPage(
-          name: Paths.dashboard,
-          middlewares: [
-            EnsureAuthedMiddleware(),
-          ],
-          page: () => const DashboardView(),
-          bindings: DashboardBinding().dependencies(),
+          name: Paths.dashboard2,
+          page: () => Dashboard2View(),
+          bindings: [Dashboard2Binding()],
         ),
         GetPage(          
           name: Paths.home,
           preventDuplicates: true,
-          page: () => const HomeView(),
+          page: () => const Home2View(),
           bindings: HomeBinding().dependencies(),
           middlewares: [
             EnsureAuthedMiddleware(),
@@ -80,7 +89,7 @@ class Pages {
             GetPage(
               name: Paths.dashboard,
               page: () => const DashboardView(),
-              bindings: DashboardBinding().dependencies(),
+              bindings: [DashboardBinding()],
             ),
             GetPage(
               name: Paths.notfound,
@@ -92,9 +101,6 @@ class Pages {
               bindings: DashboardBinding().dependencies(),
             ),
             GetPage(
-              // middlewares: [
-              //   EnsureAuthMiddleware(),
-              // ],
               name: Paths.profile,
               page: () => const ProfileView(),
               title: 'Profile',
@@ -102,47 +108,51 @@ class Pages {
               bindings: [ProfileBinding()],
             ),
             GetPage(
-              name: Paths.settings, 
-              page: () => Text("Setting"),
-              transition: Transition.rightToLeftWithFade
+              name: Paths.settings,
+              page: () => const Text("ssss"),
+              bindings: [
+                SettingsBinding(),
+              ],
             ),
+            // GetPage(
+            //   name: Paths.shop,
+            //   page: () => ShopView(),
+            //   transition: Transition.size,
+            //   bindings: [ShopBinding()],
+            //   children: [
+            //     GetPage(
+            //       name: Paths.shopList,
+            //       page: () => Text("List"),
+            //       bindings: [ShopBinding()],
+            //     )
+            //   ]
+            // ),
             GetPage(
               name: Paths.administratorRole,
               page: () => AdmRoleView(),
               bindings: AdministratorBinding().dependencies(),
               transition: Transition.size
             ),
-            GetPage(
-              name: Paths.products,
-              page: () => const ProductsView(),
-              title: 'Products',
-              transition: Transition.cupertino,
-              showCupertinoParallax: true,
-              participatesInRootNavigator: false,
-              bindings: [ProductsBinding(), ProductDetailsBinding()],
-              children: [
-                GetPage(
-                  name: Paths.productDetails,
-                  transition: Transition.cupertino,
-                  showCupertinoParallax: true,
-                  page: () => const ProductDetailsView(),
-                  bindings: const [],
-                  // middlewares: [
-                  //   //only enter this route when authed
-                  //   EnsureAuthMiddleware(),
-                  // ],
-                ),
-              ],
-            ),
           ],
         ),
         GetPage(
-          name: Paths.settings,
-          page: () => const SettingsView(),
-          bindings: [
-            SettingsBinding(),
-          ],
-        )
+          name: Paths.shop,
+          page: () => ShopView(),
+          transition: Transition.size,
+          bindings: [ShopBinding()],
+          children: [
+            GetPage(
+              name: "/shop-list",
+              page: () => const ShopListView(),
+              bindings: [ShopBinding()],
+            ),
+            GetPage(
+              name: "/:id",
+              page: () => const ShopDetailView(),
+              bindings: [ShopBinding()],
+            )
+          ]
+        ),
       ],
     ),
   ];

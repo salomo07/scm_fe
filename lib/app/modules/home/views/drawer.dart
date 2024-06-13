@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:scm_fe/app/middleware/auth_controller.dart';
 
 import '../../../../const/text_style.dart';
+import '../../../middleware/auth_controller.dart';
 import '../controllers/home_c.dart';
 
 class DrawerWidget extends GetView<HomeController> {
@@ -12,8 +12,7 @@ class DrawerWidget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    // return Text("sss");
-    return Drawer(
+    return  Drawer(
       child: Obx(() => SizedBox(
         width: 257,
         child: Padding(
@@ -29,6 +28,13 @@ class DrawerWidget extends GetView<HomeController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Gap(25),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: InkWell(
+                          onTap: () => controller.isDrawerOpened.toggle(),
+                          child: const Icon(Icons.arrow_back)
+                        ),
+                      ),
                       Text("Home",style: poppinsTextFont.copyWith(color:Colors.black.withOpacity(0.7),fontSize: 14,fontWeight: FontWeight.w800),),
                       const Gap(10),
                       InkWell(
