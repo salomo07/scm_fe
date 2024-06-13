@@ -32,7 +32,7 @@ class DrawerWidget extends GetView<HomeController> {
                         alignment: Alignment.centerRight,
                         child: InkWell(
                           onTap: () => controller.isDrawerOpened.toggle(),
-                          child: const Icon(Icons.arrow_back)
+                          child: const Icon(Icons.expand_circle_down)
                         ),
                       ),
                       Text("Home",style: poppinsTextFont.copyWith(color:Colors.black.withOpacity(0.7),fontSize: 14,fontWeight: FontWeight.w800),),

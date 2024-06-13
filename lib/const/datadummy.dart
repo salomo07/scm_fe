@@ -11,23 +11,18 @@ var dataRole=[
 var dataMenu=[
   {
     "idMenu": "001",
-    "label": "Master",
-    "iconCode":"master",
-    "subMenu": [
-      {
-        "idMenu": "submenu001",
-        "label": "Master Rack",
-        "path": "/home/masterrack"
-      },
-      {
-        "idMenu": "submenu002",
-        "label": "Master User",
-        "path": "/home/masteruser"
-      }
-    ]
+    "label": "Shop",
+    "iconCode":"shop",
+    "path": "/home/shop",
   },
   {
     "idMenu": "002",
+    "label": "About",
+    "iconCode":"about",
+    "path": "/home/about",
+  },
+  {
+    "idMenu": "005",
     "label": "Transaksi",
     "iconCode":"transaction",
     "subMenu": [
@@ -39,7 +34,7 @@ var dataMenu=[
     ]
   },
   {
-    "idMenu": "003",
+    "idMenu": "006",
     "label": "Setting",
     "iconCode":"settings",
     "path": "/home/settings",
@@ -67,7 +62,8 @@ var dataMenu=[
 
 Map<String, IconData> iconMap = {
   'dashboard': Icons.dashboard,
-  'master': Icons.storage,
+  'shop': Icons.shopify,
+  'about': Icons.info_outline,
   'transaction': Icons.attach_money_outlined,
   'settings': Icons.settings,
   'administrator': Icons.supervisor_account,
