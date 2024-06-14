@@ -83,6 +83,7 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
                                       minimumSize: isDesktop(Get.width)? const Size(220, 75):isTablet(Get.width)?const Size(120, 35):const Size(120, 35),
                                     ),                                  
                                     onPressed: () {
+                                      print(Paths.shop);
                                       Get.rootDelegate.toNamed(Paths.shop);
                                     }, 
                                     child: Text("Buy Now",style: GoogleFonts.poppins(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w700),)

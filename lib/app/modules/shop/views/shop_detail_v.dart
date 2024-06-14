@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:furniro_fe/app/routes/pages.dart';
 import 'package:furniro_fe/const/common_func.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:get/get.dart';
@@ -21,20 +22,13 @@ class ShopDetailView extends GetView<ShopController> {
         return LayoutBuilder(
           builder: (context, constraints) {
             controller.getDetailProduct(Get.parameters["id"]??"");
+            controller.getRelatedProduct();
             return Container(
               color: whiteColor,
               child: SingleChildScrollView(
                 child: Obx(() {
                   if (controller.productDetail.value.nama==null) {
-                    return Column(
-                      children: [
-                        Container(
-                          height: 100,
-                          color: filterBarColor,
-                        ),
-                        const Align(alignment: Alignment.center, child: SizedBox(width: 100, height: 100, child: CircularProgressIndicator()))
-                      ],
-                    );
+                    return const Align(alignment: Alignment.center, child: SizedBox(width: 100, height: 100, child: CircularProgressIndicator()));
                   }else{
                     return Column(
                       children: [
@@ -43,29 +37,125 @@ class ShopDetailView extends GetView<ShopController> {
                         const Divider(),
                         const Gap(48),
                         DefaultTabController(
-                    length: 3, 
-                    child: Column(
-                      children: [
-                        TabBar(
-                          tabs: [
-                            Tab(child: Text("Description", style: poppins24_500(),)),
-                            Tab(child: Text("Additional Information", style: poppins24_500(),)),
-                            Tab(child: Text("Reviews [${controller.productDetail.value.reviewCount}]", style: poppins24_500(),)),
-                          ],
+                          length: 3, 
+                          child: Column(
+                            children: [
+                              TabBar(
+                                labelPadding: EdgeInsets.zero,
+                                indicatorSize: TabBarIndicatorSize.tab,
+                                indicatorWeight: 0.1,
+                                indicatorColor: greyColor4,
+                                dividerColor: whiteColor,
+                                labelColor: Colors.black,
+                                unselectedLabelColor: greyColor4,
+                                labelStyle: poppins18_500(),
+                                unselectedLabelStyle: poppins20_500(),
+                                tabs: [
+                                  Tab(child: Text("Description", style: poppins24_500(),)),
+                                  Tab(child: Text("Additional Information", style: poppins24_500(),)),
+                                  Tab(child: Text("Reviews [${controller.productDetail.value.reviewCount}]", style: poppins24_500(),)),
+                                ],
+                              ),                              
+                              SizedBox(
+                                height: 744,
+                                child: Padding(
+                                  padding:isDesktop(Get.width)? const EdgeInsets.symmetric(horizontal:50):EdgeInsets.symmetric(horizontal:10),
+                                  child: TabBarView(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(37),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            children: [
+                                              Text(controller.productDetail.value.desc2!,style: poppins16_400().copyWith(color: greyColor4),),
+                                              const Gap(36),
+                                              Wrap(
+                                                spacing: 29,
+                                                runSpacing: 10,
+                                                children: [
+                                                  Container(
+                                                    decoration:BoxDecoration(
+                                                      color: filterBarColor,
+                                                      borderRadius:const BorderRadius.all(Radius.circular(5)),
+                                                      border: Border.all(color: Colors.transparent)
+                                                    ) ,
+                                                    height: 346,
+                                                    width: 400,
+                                                    child: Image.asset(controller.productDetail.value.images![0]),
+                                                  ),
+                                                  Container(
+                                                    decoration:BoxDecoration(
+                                                      color: filterBarColor,
+                                                      borderRadius:const BorderRadius.all(Radius.circular(5)),
+                                                      border: Border.all(color: Colors.transparent)
+                                                    ),
+                                                    height: 346,
+                                                    width: 400,
+                                                    child: Image.asset(controller.productDetail.value.images![1]),
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(37),
+                                        child: SingleChildScrollView(
+                                          child: Text(controller.productDetail.value.addInfo!,style: poppins16_400().copyWith(color: greyColor4),),
+                                        ),
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.all(37),
+                                        child: Text("Reviews"),
+                                      ),
+                                    ],
+                                    ),
+                                ),
+                              )
+                            ],
+                          )
                         ),
-                        // Expanded(
-                        //   child: TabBarView(
-                        //     physics: const NeverScrollableScrollPhysics(),
-                        //     children: [
-                        //       Text("AAA"),
-                        //       Text("BBB"),
-                        //       Text("CCC"),
-                        //     ],
-                        //     )
-                        // )
-                      ],
-                    )
-                  )
+                        const Divider(),
+                        const Gap(66),
+                        Text("Related Products",style: poppins36_500(),),
+                        const Gap(26),
+                        SizedBox(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 32),
+                              child: Row(
+                                children: controller.listImageRelatedProduct.map((element) {
+                                  return Row(
+                                    children: [
+                                      createProductView(element, controller.idProductEntered.value==element["id"]),
+                                      const Gap(32),
+                                    ],
+                                  );
+                                },).toList(),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Gap(44),
+                        Center(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              side: BorderSide(color: defaultColor, width: 2.0),
+                              textStyle: GoogleFonts.poppins(),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(3), // Reduced corner radius
+                              )
+                            ),
+                            onPressed: () {
+                              Get.rootDelegate.toNamed(Paths.shop);
+                            },
+                            child: Text("Show More",style: GoogleFonts.poppins(color: defaultColor),),
+                          ),
+                        ),
+                        const Gap(92),
+                        const Divider()
                       ],
                     );
                   }                  

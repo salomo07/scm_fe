@@ -28,7 +28,8 @@ class Home2View extends GetView<HomeController> {
                 color: backgroundRoot,
                 child: Obx(() => Container(
                   color: Colors.transparent,
-                  child: controller.isDrawerOpened.value? Row(
+                  child: controller.isDrawerOpened.value? 
+                  Row(
                     children: [
                       isDesktop(Get.width)? SizedBox(
                         width: 257,
@@ -48,13 +49,97 @@ class Home2View extends GetView<HomeController> {
                       ),
                     ],
                   ):
-                  GetRouterOutlet.builder(
-                    builder: (context, delegate, currentRoute) {
-                      return GetRouterOutlet(
-                        initialRoute: Paths.dashboard2,
-                        key: Get.nestedKey(Paths.home)
-                      );
-                    },
+                  // GetRouterOutlet.builder(
+                  //   builder: (context, delegate, currentRoute) {
+                  //     return GetRouterOutlet(
+                  //       initialRoute: Paths.dashboard2,
+                  //       key: Get.nestedKey(Paths.home)
+                  //     );
+                  //   },
+                  // )
+                  Stack(
+                    children: [
+                      GetRouterOutlet.builder(
+                        builder: (context, delegate, currentRoute) {
+                          return GetRouterOutlet(
+                            initialRoute: Paths.dashboard2,
+                            key: Get.nestedKey(Paths.home)
+                          );
+                        },
+                      ),
+                      // if(controller.isRightMenuOpened.value)
+                      Visibility(
+                        visible: controller.isRightMenuOpened.value,
+                        child: AnimatedOpacity(
+                          opacity: controller.isRightMenuOpened.value ? 0.5 : 0.0,
+                          duration: const Duration(milliseconds: 500),
+                          child: Container(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      // if(controller.isRightMenuOpened.value)
+                      AnimatedPositioned(
+                        duration: const Duration(milliseconds: 500),
+                        right: controller.isRightMenuOpened.value ? 0 : -417,
+                        top: 0,
+                        child: Opacity(
+                          opacity: controller.isRightMenuOpened.value ? 1 : 0,
+                          child: IgnorePointer(
+                            ignoring: !controller.isRightMenuOpened.value,
+                            child: Material(
+                              elevation: 80,
+                              borderRadius: BorderRadius.circular(8),
+                              child: Container(
+                                color: whiteColor,
+                                width: 417,
+                                height: Get.height,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(28),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text("Shopping Cart",style: poppins24_600(),),
+                                          IconButton(onPressed: () {
+                                            controller.isRightMenuOpened.value=false;
+                                          }, icon: Icon(Icons.close))
+                                        ],
+                                      ),
+                                      Divider(),
+                                      Gap(20),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Image.asset("/furniro/images/background/room1.png",fit: BoxFit.fill, height: 105,width: 105,),
+                                          Column(
+                                            children: [
+                                              Text("Asgaard sofa",style: poppins16_400(),),
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  Text("1",style: poppins16_300(),),
+                                                  Gap(10),
+                                                  Text("X"),
+                                                  Gap(10),
+                                                  Text("Rp. 3.000.000")
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          const Icon(Icons.close)
+                                        ],
+                                      )
+                                    ],   
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ),
+                    ],
                   ),
                 ),),
               ),
@@ -144,7 +229,7 @@ class Home2View extends GetView<HomeController> {
                     
                   }, icon: const Icon(CupertinoIcons.heart)),
                   IconButton(onPressed: () {
-                    
+                    controller.isRightMenuOpened.toggle();
                   }, icon: const Icon(CupertinoIcons.cart)),
                 ],
               )

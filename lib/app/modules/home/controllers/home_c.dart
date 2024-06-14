@@ -26,6 +26,7 @@ class HomeController extends GetxController {
   Rx<String> idSubMenuSelected = "".obs;
   RxList<Menu> listMenu = <Menu>[].obs;
   RxList<Widget> menuWidget = <Widget>[].obs;
+  Rx<bool> isRightMenuOpened = false.obs;
 
   
   final AuthController authController = Get.find<AuthController>();

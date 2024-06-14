@@ -169,10 +169,7 @@ class ShopListView extends GetView<ShopController> {
                     ],
                   ),
                   Gap(85),
-                  SizedBox(
-                    width: Get.width,
-                    child: guarantyBar(),
-                  )
+                  guarantyBar()
                 ],
               ),
             ),
@@ -205,11 +202,12 @@ class ShopListView extends GetView<ShopController> {
       child: Container(
         color: filterBarColor,
         height: 270,
+        width: Get.width,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 width: 337,

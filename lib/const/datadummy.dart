@@ -71,8 +71,8 @@ var dataDetailProducts={
     "size":["L","XL","XS"],
     "category":"Sofas",
     "images":[
-      "/furniro/images/products/mini1.png",
-      "/furniro/images/products/mini2.png",
+      "/furniro/images/products/detail.png",
+      "/furniro/images/products/detail2.png",
       "/furniro/images/products/mini3.png",
       "/furniro/images/products/detail.png"
     ],

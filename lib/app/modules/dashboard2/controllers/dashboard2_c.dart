@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class Dashboard2Controller extends GetxController {
   //FURNIRO Project
   Rx<String> idProductEntered="".obs;
+  Rx<String> idProductEnteredRelated="".obs;
   RxList<dynamic> listProducts = <dynamic>[].obs;
   RxList<dynamic> listImageRooms = <dynamic>[].obs;
   final ScrollController scrollController = ScrollController();
