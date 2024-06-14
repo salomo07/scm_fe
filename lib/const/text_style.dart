@@ -40,7 +40,12 @@ TextStyle poppins12_300() {
 TextStyle poppins12_500() {
   return GoogleFonts.getFont('Poppins',fontSize: 12, fontWeight: FontWeight.w500);
 }
-
+TextStyle poppins13_400() {
+  return GoogleFonts.getFont('Poppins',fontSize: 13, fontWeight: FontWeight.w400);
+}
+TextStyle poppins14_400() {
+  return GoogleFonts.getFont('Poppins',fontSize: 14, fontWeight: FontWeight.w400);
+}
 TextStyle poppins14_500() {
   return GoogleFonts.getFont('Poppins',fontSize: 14, fontWeight: FontWeight.w500);
 }
@@ -62,10 +67,16 @@ TextStyle poppins20_400() {
 TextStyle poppins20_500() {
   return GoogleFonts.getFont('Poppins',fontSize: 20, fontWeight: FontWeight.w500);
 }
+TextStyle poppins24_500() {
+  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w500);
+}
 TextStyle poppins25_600() {
   return GoogleFonts.getFont('Poppins',fontSize: 25, fontWeight: FontWeight.w600);
 }
 
+TextStyle poppins42_400() {
+  return GoogleFonts.getFont('Poppins',fontSize: 42, fontWeight: FontWeight.w400);
+}
 TextStyle poppins48_500() {
   return GoogleFonts.getFont('Poppins',fontSize: 48, fontWeight: FontWeight.w500);
 }

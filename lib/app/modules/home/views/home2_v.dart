@@ -15,6 +15,7 @@ class Home2View extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    print(controller.isDrawerOpened.value);
     return GetRouterOutlet.builder(
       routerDelegate: Get.rootDelegate,
       builder: (context, delegate, currentRoute) {
@@ -31,7 +32,7 @@ class Home2View extends GetView<HomeController> {
                     children: [
                       isDesktop(Get.width)? SizedBox(
                         width: 257,
-                        child: controller.isDrawerOpened.value? DrawerWidget():const Text(""),
+                        child:  DrawerWidget(),
                       ):
                       const Center(),
                       Expanded(
@@ -78,7 +79,11 @@ class Home2View extends GetView<HomeController> {
                 children: [
                   InkWell(
                     onTap: () {
-                      controller.isDrawerOpened.toggle();
+                      if(isDesktop(Get.width)){
+                        controller.isDrawerOpened.toggle();
+                      }else{
+                        Get.rootDelegate.toNamed(Paths.home);
+                      }                      
                     },
                     child: Image.asset("/furniro/images/logo/logo.png",
                       height: 32,

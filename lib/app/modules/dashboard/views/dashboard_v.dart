@@ -18,6 +18,7 @@ class DashboardView extends GetView<DashboardController> {
     HomeController rootController=Get.find<HomeController>();
     double heightCard = 300;
     print("DashboardView");
+    
     return Container(
       width: Get.width,
       height: double.infinity,

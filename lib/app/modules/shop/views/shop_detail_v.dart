@@ -1,11 +1,13 @@
+import 'package:count_stepper/count_stepper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:furniro_fe/const/common_func.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../const/common_func.dart';
 import '../controllers/shop_c.dart';
 
 class ShopDetailView extends GetView<ShopController> {
@@ -13,160 +15,363 @@ class ShopDetailView extends GetView<ShopController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetRouterOutlet.builder(
+    return GetRouterOutlet.builder(      
+      routerDelegate: Get.rootDelegate,
       builder: (context, delegate, currentRoute) {
         return LayoutBuilder(
           builder: (context, constraints) {
+            controller.getDetailProduct(Get.parameters["id"]??"");
             return Container(
               color: whiteColor,
               child: SingleChildScrollView(
-                controller: controller.scrollController,
-                child: Column(
-                  children: [
-                    navBar(),
-                    Gap(63),
-                    Padding(
-                      padding:EdgeInsets.only(top: 35,left: 99,right: 99),
-                      child:Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              Container(
-                                decoration:BoxDecoration(
-                                  color: filterBarColor,
-                                  borderRadius:const BorderRadius.all(Radius.circular(5)),
-                                  border: Border.all(color: Colors.transparent)
-                                ) ,
-                                height: 80,
-                                width: 76,
-                              )
-                            ],
-                          )
-                        ],
-                      ) ,
+                child: Obx(() {
+                  if (controller.productDetail.value.nama==null) {
+                    return Column(
+                      children: [
+                        Container(
+                          height: 100,
+                          color: filterBarColor,
+                        ),
+                        const Align(alignment: Alignment.center, child: SizedBox(width: 100, height: 100, child: CircularProgressIndicator()))
+                      ],
+                    );
+                  }else{
+                    return Column(
+                      children: [
+                        navBar(),
+                        desktopView(),
+                        const Divider(),
+                        const Gap(48),
+                        DefaultTabController(
+                    length: 3, 
+                    child: Column(
+                      children: [
+                        TabBar(
+                          tabs: [
+                            Tab(child: Text("Description", style: poppins24_500(),)),
+                            Tab(child: Text("Additional Information", style: poppins24_500(),)),
+                            Tab(child: Text("Reviews [${controller.productDetail.value.reviewCount}]", style: poppins24_500(),)),
+                          ],
+                        ),
+                        // Expanded(
+                        //   child: TabBarView(
+                        //     physics: const NeverScrollableScrollPhysics(),
+                        //     children: [
+                        //       Text("AAA"),
+                        //       Text("BBB"),
+                        //       Text("CCC"),
+                        //     ],
+                        //     )
+                        // )
+                      ],
                     )
-                  ],
-                ),
+                  )
+                      ],
+                    );
+                  }                  
+                },),
               ),
             );
           },
         );
-      },
-      routerDelegate: Get.rootDelegate,
+      }
     );
   }
 
-  guarantyBar() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Container(
-        color: filterBarColor,
-        height: 270,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.emoji_events, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, 
-                      children: [
-                        Text("High Quality", style: poppins25_600()),
-                        Gap(2),
-                        Flexible(
-                          child: Text(
-                            "crafted from top materials",
-                            style: poppins20_500().copyWith(color: greyColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.shield, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
-                      children: [
-                        Text("Warranty Protection", style: poppins25_600()),
-                        Gap(2),
-                        Text(
-                          "Over 2 years",
-                          style: poppins20_500().copyWith(color: greyColor),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.delivery_dining_outlined, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center, 
-                      children: [
-                        Text("Free Shipping", style: poppins25_600()),
-                        Gap(2),
-                        Text(
-                          "Order over 150 \$",
-                          style: poppins20_500().copyWith(color: greyColor),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),              
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.support_agent, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
-                      children: [
-                        Text("24 / 7 Support", style: poppins25_600()),
-                        Gap(2),
-                        Flexible(
-                          child: Text(
-                            "Dedicated support",
-                            style: poppins20_500().copyWith(color: greyColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
+  Padding desktopView() {
+    return Padding(
+      padding:const EdgeInsets.only(top: 35,left: 35,right: 35),
+      child:Wrap(
+        spacing: 31,
+        children: [
+          previewImage(isMobile(Get.width)==true),
+          Container(
+            decoration:BoxDecoration(
+              color: filterBarColor,
+              borderRadius:const BorderRadius.all(Radius.circular(5)),
+              border: Border.all(color: Colors.transparent)
+            ) ,
+            height: 500,
+            width: 423,
+            child: Image.asset(fit: BoxFit.fill,controller.selectedImage.value==""&&controller.productDetail.value.images!.isNotEmpty?controller.productDetail.value.images![0]:controller.selectedImage.value),
           ),
-        ),
-      ),
+          const Gap(105),
+          SizedBox(
+            width: 606,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(controller.productDetail.value.nama!,style:poppins42_400()),
+                Text("Rp. ${controller.productDetail.value.harga !}",style:poppins24_500().copyWith(color: greyColor4)),
+                const Gap(15),
+                Row(
+                  children: [
+                    RatingBar.builder(
+                      initialRating: controller.productDetail.value.rating!,
+                      itemBuilder: (context, index) {
+                        return const Icon(Icons.star,color: Colors.yellow,);
+                      }, 
+                      onRatingUpdate: (value) {},
+                    ),
+                    const SizedBox(height: 50,child: VerticalDivider(),),
+                    Text("${controller.productDetail.value.reviewCount} Customer Review",style: poppins13_400(),)
+                  ],
+                ),
+                const Gap(18),
+                Text(controller.productDetail.value.desc!,style: poppins13_400(),),
+                const Gap(22),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Size",style: poppins14_500().copyWith(color: greyColor4),),
+                    const Gap(12),
+                    Row(
+                      children:controller.productDetail.value.sizes!.map((e) {
+                        return Row(
+                          children: [
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: e==controller.selectedSize.value?defaultColor:filterBarColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5), // Border radius
+                                ),
+                                minimumSize: const Size(30, 30),
+                              ),
+                              onPressed: () {
+                                controller.selectedSize.value=e;                           
+                              }, 
+                              child:Text(e,style: poppins13_400(),)
+                            ),
+                            const Gap(16)
+                          ],
+                        );
+                      },).toList(),
+                    )
+                  ],
+                ),
+                const Gap(16),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Color",style: poppins14_500().copyWith(color: greyColor4),),
+                    const Gap(12),
+                    Row(
+                      children:controller.productDetail.value.colors!.map((e) {
+                        return Row(
+                          children: [
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: hexToColor(e),
+                                shape: const CircleBorder(),
+                                minimumSize: const Size(40, 40),
+                              ),
+                              onPressed: () {    
+                                controller.selectedColor.value=e;
+                                Fluttertoast.showToast(
+                                  msg: "Warna berhasil dipilih",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.black,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0,
+                                );                       
+                              }, 
+                              child:const Text("")
+                            ),
+                            const Gap(16)
+                          ],
+                        );
+                      },).toList(),
+                    )
+                  ],
+                ),
+                const Gap(32),
+                Row(
+                  // spacing: 15,
+                  // runSpacing: 10,
+                  children: [
+                    CountStepper(
+                      iconColor: Colors.black,
+                      defaultValue: 1,
+                      max: 10,
+                      min: 1,
+                      iconDecrementColor: Colors.black,
+                      splashRadius: 25,
+                      onPressed: (value) {
+                        controller.selectedQty.value=value;
+                      },
+                    ),
+                    const Gap(20),
+                    TextButton(
+                      onPressed: () {
+                        controller.addToCart();
+                      }, 
+                      style:TextButton.styleFrom(
+                        backgroundColor: whiteColor,                        
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: blackColor2,width: 1),
+                          borderRadius: BorderRadius.circular(20), // Border radius
+                        ),
+                        maximumSize: const Size(140, 64),
+                      ),
+                      child: const Text("Add To Cart",)
+                    ),
+                    const Gap(20),
+                    TextButton(
+                      onPressed: () {
+                        
+                      }, 
+                      style:TextButton.styleFrom(
+                        backgroundColor: whiteColor,                        
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(color: blackColor2,width: 1),
+                          borderRadius: BorderRadius.circular(20), // Border radius
+                        ),
+                        maximumSize: const Size(140, 64),
+                      ),
+                      child: const Row(
+                        children: [
+                          Icon(Icons.add),
+                          Gap(10),
+                          Text("Compare"),
+                        ],
+                      )
+                    ),
+                  ],
+                ),
+                const Gap(60),
+                const Divider(),
+                const Gap(41),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 91,
+                          child: Text("SKU",style: poppins16_400().copyWith(color: greyColor4)),
+                        ),
+                        Text(":",style: poppins16_400().copyWith(color: greyColor4)),
+                        const Gap(12),
+                        Text(controller.productDetail.value.sku!,style: poppins16_400().copyWith(color: greyColor4),),
+                      ],
+                    ),
+                    const Gap(12),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 91,
+                          child: Text("Category",style: poppins16_400().copyWith(color: greyColor4)),
+                        ),
+                        Text(":",style: poppins16_400().copyWith(color: greyColor4)),
+                        const Gap(12),
+                        Text(controller.productDetail.value.category!,style: poppins16_400().copyWith(color: greyColor4),),
+                      ],
+                    ),
+                    const Gap(12),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 91,
+                          child: Text("Tags",style: poppins16_400().copyWith(color: greyColor4)),
+                        ),
+                        Text(":",style: poppins16_400().copyWith(color: greyColor4)),
+                        const Gap(12),
+                        Text(controller.productDetail.value.tags!,style: poppins16_400().copyWith(color: greyColor4),),
+                      ],
+                    ),
+                    const Gap(12),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 91,
+                          child: Text("Share",style: poppins16_400().copyWith(color: greyColor4)),
+                        ),
+                        Text(":",style: poppins16_400().copyWith(color: greyColor4)),
+                        const Gap(12),
+                        const Row(
+                          children: [
+                            Icon(Icons.facebook),
+                            Gap(25),
+                            Icon(Icons.linked_camera),
+                            Gap(25),
+                            Icon(Icons.telegram),
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                  
+                ),
+                const Gap(69),
+                // const Divider()
+              ],
+            ),
+          ),
+        ],
+      ) ,
     );
   }
+
+  previewImage(bool isMobile) {
+    if(isMobile)
+    {
+      return Column(
+        children: [
+          Wrap(          
+            spacing: 32,
+            runSpacing: 10,
+            children:controller.productDetail.value.images!.map((element) {
+              return InkWell(
+                onTap: () {
+                  controller.selectedImage.value=element;
+                },
+                child: Container(
+                  decoration:BoxDecoration(
+                    color: filterBarColor,
+                    borderRadius:const BorderRadius.all(Radius.circular(5)),
+                    border: Border.all(color: Colors.transparent)
+                  ) ,
+                  height: 80,
+                  width: 76,
+                  child: Image.asset(element),
+                ),
+              );
+            },).toList()
+          ),
+          const Gap(10)
+        ],
+      );
+    }
+    return Column(
+      children:controller.productDetail.value.images!.map((element) {
+        return Column(
+          children: [
+            InkWell(
+              onTap: () {
+                controller.selectedImage.value=element;
+              },
+              child: Container(
+                decoration:BoxDecoration(
+                  color: filterBarColor,
+                  borderRadius:const BorderRadius.all(Radius.circular(5)),
+                  border: Border.all(color: Colors.transparent)
+                ) ,
+                height: 80,
+                width: 76,
+                child: Image.asset(element),
+              ),
+            ),
+            const Gap(32)
+          ],
+        );
+      },).toList()
+    );
+  }
+
 
   navBar() {
     return Container(
@@ -183,16 +388,18 @@ class ShopDetailView extends GetView<ShopController> {
           alignment: WrapAlignment.start,
           children: [
             Text("Home",style: poppins16_400().copyWith(color: greyColor4),),
-            Icon(Icons.arrow_forward_ios,color: Colors.black,),
+            const Icon(Icons.arrow_forward_ios,color: Colors.black,),
             Text("Shop",style: poppins16_400().copyWith(color: greyColor4)),
-            SizedBox(height: 50, child: VerticalDivider()),
-            Text("Asgaard sofa",style: poppins16_400().copyWith(color: Colors.black)),
+            const SizedBox(height: 50, child: VerticalDivider()),
+            Text(controller.productDetail.value.nama!,style: poppins16_400().copyWith(color: Colors.black)),
           ],
         ),
       ),
     );
   }
-
+  Color hexToColor(String hex) {
+    return Color(int.parse("0xFF$hex"));
+  }
   Widget createProductView(dynamic data,bool entered) {
     return MouseRegion(
       onEnter: (event) {

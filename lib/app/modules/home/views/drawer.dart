@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/const/common_func.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -28,6 +29,7 @@ class DrawerWidget extends GetView<HomeController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Gap(25),
+                      if(!isMobile(Get.width))
                       Align(
                         alignment: Alignment.centerRight,
                         child: InkWell(
