@@ -21,7 +21,9 @@ class CartView extends GetView<CartController> {
       builder: (context, constraints) {
         return Container(
           color: whiteColor,
-          child: ListView(
+          width: Get.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 width: Get.width,
@@ -127,7 +129,7 @@ class CartView extends GetView<CartController> {
                 ),
               ),
               const Gap(56),
-              guarantyBar()
+              guarantyBar()                
             ],
           ),
         );
@@ -140,7 +142,6 @@ class CartView extends GetView<CartController> {
       child: Container(
         color: filterBarColor,
         height: 270,
-        width: Get.width,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
