@@ -43,12 +43,11 @@ class ShopListView extends GetView<ShopController> {
                     children: [
                       SizedBox(
                         width: Get.width,
-                        height: 318, // Adjust the height as needed
+                        height: 318,
                         child: Image.asset(
                           "/furniro/images/background/background2.png",
                           width: Get.width,
                           fit: BoxFit.fill,
-                          // alignment: Alignment.topCenter,
                         ),
                       ),
                       Positioned.fill(

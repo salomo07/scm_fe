@@ -143,7 +143,7 @@ class ShopDetailView extends GetView<ShopController> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               side: BorderSide(color: defaultColor, width: 2.0),
-                              textStyle: GoogleFonts.poppins(),
+                              textStyle: poppinsTextFont,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(3), // Reduced corner radius
                               )

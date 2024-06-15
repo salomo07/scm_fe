@@ -10,6 +10,8 @@ abstract class Paths {
   static const notfound = '/404';
   static const about = '$home/about';
   static const cart = '$home/cart';
+  static const checkout = '$home/checkout';
+  static const comparation = '$home/comparation';
 
   static const shop = '$home/shop';
   static const shopList = '/shop-list';

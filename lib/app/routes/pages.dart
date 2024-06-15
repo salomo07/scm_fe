@@ -12,6 +12,7 @@ import '../modules/about/views/about_v.dart';
 import '../modules/administrator/bindings/adm_b.dart';
 import '../modules/administrator/views/adm_role_v.dart';
 import '../modules/cart/views/cart_v.dart';
+import '../modules/cart/views/checkout_v.dart';
 import '../modules/dashboard/bindings/dashboard_b.dart';
 import '../modules/dashboard/views/dashboard_v.dart';
 import '../modules/dashboard/views/default_v.dart';
@@ -132,8 +133,14 @@ class Pages {
         ),
         GetPage(
           name: Paths.cart,
-          page: () => CartView(),
-          transition: Transition.circularReveal,
+          page: () => const CartView(),
+          transition: Transition.size,
+          bindings: [CartBinding()],
+        ),
+        GetPage(
+          name: Paths.checkout,
+          page: () => const CheckoutView(),
+          transition: Transition.size,
           bindings: [CartBinding()],
         ),
         GetPage(

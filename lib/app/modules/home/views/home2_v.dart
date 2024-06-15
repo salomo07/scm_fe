@@ -58,7 +58,6 @@ class Home2View extends GetView<HomeController> {
                           );
                         },
                       ),
-                      // if(controller.isRightMenuOpened.value)
                       Visibility(
                         visible: controller.isRightMenuOpened.value,
                         child: AnimatedOpacity(
@@ -69,7 +68,6 @@ class Home2View extends GetView<HomeController> {
                           ),
                         ),
                       ),
-                      // if(controller.isRightMenuOpened.value)
                       AnimatedPositioned(
                         duration: const Duration(milliseconds: 500),
                         right: controller.isRightMenuOpened.value ? 0 : -417,
@@ -79,8 +77,6 @@ class Home2View extends GetView<HomeController> {
                           child: IgnorePointer(
                             ignoring: !controller.isRightMenuOpened.value,
                             child: Material(
-                              elevation: 80,
-                              borderRadius: BorderRadius.circular(8),
                               child: cartMenu(),
                             ),
                           ),
@@ -183,7 +179,7 @@ class Home2View extends GetView<HomeController> {
                   width: 118,
                   text:"Checkout" , 
                   onPressed: () {
-                    
+                    Get.rootDelegate.toNamed(Paths.checkout);
                   },
                 ),
                 CustomButton(
@@ -194,7 +190,7 @@ class Home2View extends GetView<HomeController> {
                   width: 135,
                   text:"Comparation" , 
                   onPressed: () {
-                    
+                    Get.rootDelegate.toNamed(Paths.comparation);
                   },
                 ),
               ],

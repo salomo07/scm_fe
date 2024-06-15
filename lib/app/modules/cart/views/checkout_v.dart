@@ -2,16 +2,16 @@ import 'package:count_stepper/count_stepper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniro_fe/const/text_style.dart';
+import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../const/common_func.dart';
-import '../../../../widgets/custom_button.dart';
 import '../../shop/controllers/shop_c.dart';
 
 
-class CartView extends GetView<ShopController> {
-  const CartView({super.key});
+class CheckoutView extends GetView<ShopController> {
+  const CheckoutView({super.key});
 
   @override
   Widget build(BuildContext context) {    
@@ -24,6 +24,7 @@ class CartView extends GetView<ShopController> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  
                   Stack(
                     children: [
                       SizedBox(
@@ -50,7 +51,7 @@ class CartView extends GetView<ShopController> {
                                   fit: BoxFit.fill,
                                 ),
                                 Text(
-                                  "Cart",
+                                  "Checkout",
                                   style: poppins48_500(),
                                 ),
                                 const SizedBox(height: 16),
@@ -59,7 +60,7 @@ class CartView extends GetView<ShopController> {
                                   children: [
                                     Text("Home", style: poppins16_500()),
                                     const Icon(Icons.arrow_forward),
-                                    Text("Cart", style: poppins16_300()),
+                                    Text("Checkout", style: poppins16_300()),
                                   ],
                                 ),
                               ],
@@ -73,106 +74,79 @@ class CartView extends GetView<ShopController> {
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal:isDesktop(Get.width)?100: 10),
                       child: Wrap(
-                        spacing: 30,
-                        runSpacing: 30,                  
+                        spacing: 26,
+                        runSpacing: 26,                  
                         children: [
-                          SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: SizedBox(
-                              width: 781,
-                              child: DataTable(
-                                headingRowColor: MaterialStateColor.resolveWith((states) => filterBarColor),
-                                columns: [
-                                  DataColumn(label: SizedBox(width: 250, child: Text("Product",style: poppins16_500(),)),),
-                                  DataColumn(label:SizedBox(width: 100, child: Text("Price",style: poppins16_500())),),
-                                  DataColumn(label:SizedBox(width: 100, child: Text("Quantity",style: poppins16_500()))),
-                                  DataColumn(label:SizedBox(width: 100, child: Text("Subtotal",style: poppins16_500())),)
-                                ],
-                                rows: [
-                                  DataRow(                            
-                                    cells: [
-                                      DataCell(
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              height: 500,
-                                              width: 100,
-                                              decoration: BoxDecoration(
-                                                color: filterBarColor,
-                                                borderRadius: const BorderRadius.all(Radius.circular(10))
-                                              ),
-                                              child: Image.asset("/furniro/images/background/room5.png",width: 100,height: 100,fit: BoxFit.contain,)),
-                                            const Gap(20),
-                                            Text("Asgaard sofa",style: poppins16_400().copyWith(color: greyColor4))
-                                          ],),),
-                                      DataCell(Center(child: Text("Rp. 250,000.00",style: poppins16_400().copyWith(color: greyColor4)))),
-                                      DataCell(CountStepper(
-                                        iconColor: Colors.black,
-                                        defaultValue: 1,
-                                        max: 10,
-                                        min: 1,
-                                        iconDecrementColor: Colors.black,
-                                        splashRadius: 25,
-                                        onPressed: (value) {
-                                          // controller.selectedQty.value=value;
-                                          },
-                                        ),),
-                                      DataCell(Center(child: Text("Rp. 250,000.00",style: poppins16_400())))
-                                    ]
-                                  )
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Gap(95),
+                              Text("Billing details",style: poppins36_600()),
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text("First Name",style: poppins16_500(),),
+                                      Gap(22),
+                                      CustomTextFormField(
+                                        width: 211,
+                                        height: 75,
+                                        controller: TextEditingController(),
+                                        label: "",
+                                        textStyle: poppinsTextFont,
+                                      )
+                                    ],
+                                    
+                                  ),
+                                  Gap(31),
+                                  Column(
+                                    children: [
+                                      Text("Last Name",style: poppins16_500(),),
+                                      Gap(22),
+                                      CustomTextFormField(
+                                        width: 211,
+                                        height: 75,
+                                        controller: TextEditingController(),
+                                        label: "",
+                                        textStyle: poppinsTextFont,
+                                      )
+                                    ],
+                                    
+                                  ),
                                 ],
                               ),
-                            )
-                              
-                          ),
-                          Container(
-                            width:340,
-                            height:340,
-                            color: filterBarColor,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal:  15),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [            
-                                  Text("Cart Totals",style: poppins36_500()),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Subtotal",style: poppins16_500()),
-                                      Text("Rp. 250.000",style: poppins16_400().copyWith(color: greyColor4)),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Total",style: poppins16_500()),
-                                      Text("Rp. 250.000",style: poppins20_500().copyWith(color: defaultColor)),
-                                    ],
-                                  ),
-                                  CustomButton(
-                                    width: 222,
-                                    height: 59,
-                                    borderRadius: 50,
-                                    colorButton: whiteColor,
-                                    colorBorder: blackColor2,
-                                    textStyle: poppins20_400().copyWith(color: blackColor2),
-                                    text: "Check Out", 
-                                    onPressed: () {
-                                      
-                                    },
-                                  )
-                                ],
+                              Gap(36),
+                              Text("Company Name (Optional)",style: poppins16_500(),),
+                              Gap(22),
+                              CustomTextFormField(
+                                width: 453,
+                                height: 75,
+                                controller: TextEditingController(),
+                                label: "",
+                                textStyle: poppinsTextFont,
                               ),
-                            ),
-                          ),
+                              Gap(36),
+                              Text("Country / Region",style: poppins16_500(),),
+                              Gap(22),
+                              DropdownButton(
+                                items: , onChanged: onChanged)
+                              CustomTextFormField(
+                                width: 453,
+                                height: 75,
+                                controller: TextEditingController(),
+                                label: "",
+                                textStyle: poppinsTextFont,
+                              )
+                            ],
+                            
+                          )
                         ],
                       ),
                     ),
                   ),
                   const Gap(56),
-                  guarantyBar() 
+                  guarantyBar(),
+                  
                 ],
               ),
             ),
