@@ -33,11 +33,7 @@ class ShopListView extends GetView<ShopController> {
     
     return Scaffold(
       body: LayoutBuilder(
-      builder: (context, constraints) {
-        if(isDesktop(Get.width)){print("isDesktop");}
-        else if(isTablet(Get.width)){print("isTablet");}
-        else{print("isMobile");}
-        
+      builder: (context, constraints) {        
         return Scaffold(
           body: Container(
             color: whiteColor,
@@ -87,7 +83,7 @@ class ShopListView extends GetView<ShopController> {
                     ],
                   ),
                   filterBar(),
-                  Gap(63),
+                  const Gap(63),
                   Container(
                     width: 1236,
                     color: whiteColor,
@@ -103,7 +99,7 @@ class ShopListView extends GetView<ShopController> {
                       );
                     },),
                   ),
-                  Gap(70),
+                  const Gap(70),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -168,7 +164,7 @@ class ShopListView extends GetView<ShopController> {
                       )
                     ],
                   ),
-                  Gap(85),
+                  const Gap(85),
                   guarantyBar()
                 ],
               ),
@@ -203,106 +199,103 @@ class ShopListView extends GetView<ShopController> {
         color: filterBarColor,
         height: 270,
         width: Get.width,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.emoji_events, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, 
-                      children: [
-                        Text("High Quality", style: poppins25_600()),
-                        Gap(2),
-                        Flexible(
-                          child: Text(
-                            "crafted from top materials",
-                            style: poppins20_500().copyWith(color: greyColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.shield, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
-                      children: [
-                        Text("Warranty Protection", style: poppins25_600()),
-                        Gap(2),
-                        Text(
-                          "Over 2 years",
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 337,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Icon(Icons.emoji_events, size: 52),
+                  const Gap(10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
+                    mainAxisAlignment: MainAxisAlignment.center, 
+                    children: [
+                      Text("High Quality", style: poppins25_600()),
+                      const Gap(2),
+                      Flexible(
+                        child: Text(
+                          "crafted from top materials",
                           style: poppins20_500().copyWith(color: greyColor),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.delivery_dining_outlined, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center, 
-                      children: [
-                        Text("Free Shipping", style: poppins25_600()),
-                        Gap(2),
-                        Text(
-                          "Order over 150 \$",
+            ),
+            SizedBox(
+              width: 337,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Icon(Icons.shield, size: 52),
+                  const Gap(10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
+                    mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
+                    children: [
+                      Text("Warranty Protection", style: poppins25_600()),
+                      const Gap(2),
+                      Text(
+                        "Over 2 years",
+                        style: poppins20_500().copyWith(color: greyColor),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 337,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Icon(Icons.delivery_dining_outlined, size: 52),
+                  const Gap(10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center, 
+                    children: [
+                      Text("Free Shipping", style: poppins25_600()),
+                      const Gap(2),
+                      Text(
+                        "Order over 150 \$",
+                        style: poppins20_500().copyWith(color: greyColor),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),              
+            SizedBox(
+              width: 337,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Icon(Icons.support_agent, size: 52),
+                  const Gap(10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
+                    mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
+                    children: [
+                      Text("24 / 7 Support", style: poppins25_600()),
+                      const Gap(2),
+                      Flexible(
+                        child: Text(
+                          "Dedicated support",
                           style: poppins20_500().copyWith(color: greyColor),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),              
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.support_agent, size: 52),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
-                      children: [
-                        Text("24 / 7 Support", style: poppins25_600()),
-                        Gap(2),
-                        Flexible(
-                          child: Text(
-                            "Dedicated support",
-                            style: poppins20_500().copyWith(color: greyColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -333,18 +326,18 @@ class ShopListView extends GetView<ShopController> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.filter_list_outlined),
-                          Gap(12),
+                          const Icon(Icons.filter_list_outlined),
+                          const Gap(12),
                           Text("Filter",style: poppins20_400(),)
                         ],
                       ),
-                      SizedBox(child: Icon(Icons.grid_view_rounded)),
-                      Icon(Icons.calendar_view_day_sharp),
+                      const SizedBox(child: Icon(Icons.grid_view_rounded)),
+                      const Icon(Icons.calendar_view_day_sharp),
                     ],
                   ),
-                  Gap(20),
-                  SizedBox(height: 50, child: VerticalDivider()),
-                  Gap(34), // Menggunakan VerticalDivider untuk memisahkan secara vertikal
+                  const Gap(20),
+                  const SizedBox(height: 50, child: VerticalDivider()),
+                  const Gap(34), // Menggunakan VerticalDivider untuk memisahkan secara vertikal
                   Flexible(child: Text("Showing 1–16 of 32 results",style: poppins20_400(),)),
                 ],
               ),
@@ -357,15 +350,15 @@ class ShopListView extends GetView<ShopController> {
                   Row(
                     children: [
                       Text("Show",style: poppins20_400(),),
-                      Gap(17),
+                      const Gap(17),
                       SizedBox(width: 55, child: TextFormField())
                     ],
                   ),
-                  Gap(20),
+                  const Gap(20),
                   Row(
                     children: [
                       Text("Short by",style: poppins20_400(),),
-                      Gap(17),
+                      const Gap(17),
                       SizedBox(width: 120, child: TextFormField())
                     ],
                   ),

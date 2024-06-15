@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/widgets/custom_button.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../../../const/common_func.dart';
 import '../../../../const/text_style.dart';
@@ -15,7 +15,6 @@ class Home2View extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    print(controller.isDrawerOpened.value);
     return GetRouterOutlet.builder(
       routerDelegate: Get.rootDelegate,
       builder: (context, delegate, currentRoute) {
@@ -25,7 +24,7 @@ class Home2View extends GetView<HomeController> {
               appBar: appbarCustom(),
               drawer:!isDesktop(Get.width)? SizedBox(width: 257,child: DrawerWidget()):null,
               body: ColoredBox(
-                color: backgroundRoot,
+                color: whiteColor,
                 child: Obx(() => Container(
                   color: Colors.transparent,
                   child: controller.isDrawerOpened.value? 
@@ -49,14 +48,6 @@ class Home2View extends GetView<HomeController> {
                       ),
                     ],
                   ):
-                  // GetRouterOutlet.builder(
-                  //   builder: (context, delegate, currentRoute) {
-                  //     return GetRouterOutlet(
-                  //       initialRoute: Paths.dashboard2,
-                  //       key: Get.nestedKey(Paths.home)
-                  //     );
-                  //   },
-                  // )
                   Stack(
                     children: [
                       GetRouterOutlet.builder(
@@ -90,51 +81,7 @@ class Home2View extends GetView<HomeController> {
                             child: Material(
                               elevation: 80,
                               borderRadius: BorderRadius.circular(8),
-                              child: Container(
-                                color: whiteColor,
-                                width: 417,
-                                height: Get.height,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(28),
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("Shopping Cart",style: poppins24_600(),),
-                                          IconButton(onPressed: () {
-                                            controller.isRightMenuOpened.value=false;
-                                          }, icon: Icon(Icons.close))
-                                        ],
-                                      ),
-                                      Divider(),
-                                      Gap(20),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Image.asset("/furniro/images/background/room1.png",fit: BoxFit.fill, height: 105,width: 105,),
-                                          Column(
-                                            children: [
-                                              Text("Asgaard sofa",style: poppins16_400(),),
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                children: [
-                                                  Text("1",style: poppins16_300(),),
-                                                  Gap(10),
-                                                  Text("X"),
-                                                  Gap(10),
-                                                  Text("Rp. 3.000.000")
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          const Icon(Icons.close)
-                                        ],
-                                      )
-                                    ],   
-                                  ),
-                                ),
-                              ),
+                              child: cartMenu(),
                             ),
                           ),
                         )
@@ -147,6 +94,114 @@ class Home2View extends GetView<HomeController> {
           },
         );
       },
+    );
+  }
+
+  Container cartMenu() {
+    return Container(
+      color: whiteColor,
+      width: 417,
+      height: 420,
+      child: Padding(
+        padding: const EdgeInsets.all(28),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Shopping Cart",style: poppins24_600(),),
+                IconButton(onPressed: () {
+                  controller.isRightMenuOpened.value=false;
+                }, icon: const Icon(Icons.close))
+              ],
+            ),
+            const Divider(),
+            const Gap(20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  child: Image.asset("/furniro/images/background/room1.png",fit: BoxFit.fill, height: 105,width: 105,)),
+                Column(
+                  children: [
+                    Text("Asgaard sofa",style: poppins16_400(),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("1",style: poppins16_300(),),
+                        const Gap(10),
+                        Text("X",style: poppins12_300(),),
+                        const Gap(10),
+                        Text("Rp. 3.000.000",style: poppins12_500().copyWith(color: defaultColor),)
+                      ],
+                    ),
+                  ],
+                ),
+                IconButton(
+                  onPressed: () {
+                  
+                  },
+                  icon: const Icon(Icons.delete)
+                )
+              ],
+            ),
+            const Spacer(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Subtotal",style: poppins16_400(),),
+                    Text("Rp. 2.000.000",style: poppins16_600().copyWith(color: defaultColor),),
+                  ],
+                ),
+              ),
+            ),
+            const Divider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomButton(
+                  textStyle: poppins12_500().copyWith(color: blackColor2),
+                  colorButton: whiteColor,
+                  colorBorder: blackColor2,
+                  borderRadius: 50,
+                  width: 87,
+                  text:"Cart" , 
+                  onPressed: () {
+                    Get.rootDelegate.toNamed(Paths.cart);
+                  },
+                ),
+                CustomButton(
+                  textStyle: poppins12_500().copyWith(color: blackColor2),
+                  colorButton: whiteColor,
+                  colorBorder: blackColor2,
+                  borderRadius: 50,
+                  width: 118,
+                  text:"Checkout" , 
+                  onPressed: () {
+                    
+                  },
+                ),
+                CustomButton(
+                  textStyle: poppins12_500().copyWith(color: blackColor2),
+                  colorButton: whiteColor,
+                  colorBorder: blackColor2,
+                  borderRadius: 50,
+                  width: 135,
+                  text:"Comparation" , 
+                  onPressed: () {
+                    
+                  },
+                ),
+              ],
+            )
+          ],   
+        ),
+      ),
     );
   }
   

@@ -7,7 +7,6 @@ import '../../../../const/text_style.dart';
 import '../../../../env.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../home/controllers/home_c.dart';
-import '../../root/controllers/root_c.dart';
 import '../controllers/dashboard_c.dart';
 
 class DashboardView extends GetView<DashboardController> {
@@ -17,9 +16,8 @@ class DashboardView extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     HomeController rootController=Get.find<HomeController>();
     double heightCard = 300;
-    print("DashboardView");
     
-    return Container(
+    return SizedBox(
       width: Get.width,
       height: double.infinity,
       child: Padding(

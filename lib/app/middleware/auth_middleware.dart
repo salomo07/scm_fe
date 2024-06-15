@@ -7,7 +7,7 @@ class EnsureAuthedMiddleware extends GetMiddleware {
   Future<GetNavConfig?> redirectDelegate(GetNavConfig route) async {
     AuthController authController = Get.find();
     // print("EnsureAuthedMiddleware ${authController.isLogged.value} ${route.currentPage!.name}");
-    var thenTo;
+    String? thenTo;
     if(route.currentPage!.name==Paths.root)
     if(Get.rootDelegate.currentConfiguration!=null&&Get.rootDelegate.currentConfiguration!.currentPage!.parameters?['then']!=null)
     {

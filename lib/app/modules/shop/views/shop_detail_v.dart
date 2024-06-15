@@ -59,7 +59,7 @@ class ShopDetailView extends GetView<ShopController> {
                               SizedBox(
                                 height: 744,
                                 child: Padding(
-                                  padding:isDesktop(Get.width)? const EdgeInsets.symmetric(horizontal:50):EdgeInsets.symmetric(horizontal:10),
+                                  padding:isDesktop(Get.width)? const EdgeInsets.symmetric(horizontal:50):const EdgeInsets.symmetric(horizontal:10),
                                   child: TabBarView(
                                     children: [
                                       Padding(

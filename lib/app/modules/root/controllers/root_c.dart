@@ -1,22 +1,9 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
-import '../../../../const/datadummy.dart';
-import '../../../../const/text_style.dart';
 import '../../../../models/menu.dart';
 class RootController extends GetxController {
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 
   Rx<double> heightUserImage = 45.0.obs;
   Rx<double> leadingWidth = 120.0.obs;
@@ -35,9 +22,5 @@ class RootController extends GetxController {
   RxList<Widget> menuWidget = <Widget>[].obs;
   Rx<String> anchorPath="/".obs;
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
   
 }

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:furniro_fe/app/routes/pages.dart';
 import 'package:furniro_fe/models/detail_product_m.dart';
 import 'package:get/get.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../../const/datadummy.dart';
 class ShopController extends GetxController {

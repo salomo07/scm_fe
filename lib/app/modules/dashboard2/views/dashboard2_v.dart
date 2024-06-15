@@ -9,11 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../const/common_func.dart';
 import '../../../../const/text_style.dart';
-import '../../../../env.dart';
-import '../../../../widgets/custom_button.dart';
 import '../../../routes/pages.dart';
-import '../../home/controllers/home_c.dart';
-import '../../root/controllers/root_c.dart';
 import '../../shop/controllers/shop_c.dart';
 import '../controllers/dashboard2_c.dart';
 
@@ -83,7 +79,6 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
                                       minimumSize: isDesktop(Get.width)? const Size(220, 75):isTablet(Get.width)?const Size(120, 35):const Size(120, 35),
                                     ),                                  
                                     onPressed: () {
-                                      print(Paths.shop);
                                       Get.rootDelegate.toNamed(Paths.shop);
                                     }, 
                                     child: Text("Buy Now",style: GoogleFonts.poppins(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w700),)
@@ -123,7 +118,7 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
                           if(controller.listImageRooms.isNotEmpty){
                           return Expanded(
                             child: CarouselSlider.builder(
-                              itemCount: controller.listImageRooms.value.length,
+                              itemCount: controller.listImageRooms.length,
                               options: CarouselOptions(
                               ),
                               itemBuilder: (context, index, realIndex) {
@@ -214,8 +209,8 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
     );
   }
 
-  Container leftRoom() {
-    return Container(
+  SizedBox leftRoom() {
+    return SizedBox(
       width: 422,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -450,7 +445,7 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
               ),
             ),
           ),
-          Gap(30),
+          const Gap(30),
           Center(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(

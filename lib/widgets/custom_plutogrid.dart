@@ -7,6 +7,7 @@ class CustomPlutoGrid extends StatelessWidget {
   const CustomPlutoGrid({super.key,this.height=300, required this.onRowChecked, required this.onLoaded,this.data,required this.listRow,required this.listColumn});
   final void Function(PlutoGridOnRowCheckedEvent event) onRowChecked;
   final void Function(PlutoGridOnLoadedEvent event) onLoaded;
+  // ignore: prefer_typing_uninitialized_variables
   final data;
   final dynamic listRow;
   final dynamic listColumn;
