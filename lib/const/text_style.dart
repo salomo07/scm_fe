@@ -17,6 +17,8 @@ Color greyColor=const Color(0xff898989);
 Color greyColor2=const Color(0xff959895);
 Color greyColor3=const Color(0xff616161);
 Color greyColor4=const Color(0xff9F9F9F);
+Color greyColor5=const Color(0xff727272);
+
 
 Color filterBarColor=const Color(0xffF9F1E7);
 
@@ -76,8 +78,14 @@ TextStyle poppins24_500() {
 TextStyle poppins24_600() {
   return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w600);
 }
+TextStyle poppins24_700() {
+  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w700);
+}
 TextStyle poppins25_600() {
   return GoogleFonts.getFont('Poppins',fontSize: 25, fontWeight: FontWeight.w600);
+}
+TextStyle poppins28_500(){
+  return GoogleFonts.getFont('Poppins',fontSize: 28, fontWeight: FontWeight.w500);
 }
 TextStyle poppins32_600() {
   return GoogleFonts.getFont('Poppins',fontSize: 32, fontWeight: FontWeight.w600);

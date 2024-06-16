@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniro_fe/app/modules/cart/bindings/cart_b.dart';
+import 'package:furniro_fe/app/modules/cart/views/comparation_v.dart';
 import 'package:furniro_fe/app/modules/shop/bindings/shop_b.dart';
 import 'package:furniro_fe/app/modules/shop/views/shop_detail_v.dart';
 import 'package:furniro_fe/app/modules/shop/views/shop_v.dart';
@@ -140,6 +141,12 @@ class Pages {
         GetPage(
           name: Paths.checkout,
           page: () => const CheckoutView(),
+          transition: Transition.size,
+          bindings: [CartBinding()],
+        ),
+        GetPage(
+          name: Paths.comparation,
+          page: () => const ComparationView(),
           transition: Transition.size,
           bindings: [CartBinding()],
         ),

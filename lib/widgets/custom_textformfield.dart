@@ -30,7 +30,6 @@ class CustomTextFormField extends StatefulWidget {
     this.isEnabled = true,
     this.onChanged,
     this.validator,
-    this.keyboardType,
     this.inputFormatters,
     this.maxLines = 1,
     this.maxLength,
@@ -57,7 +56,6 @@ class CustomTextFormField extends StatefulWidget {
   final Function()? onSuffixTap, onPrefixTap, onTap;
   final Function(String)? onChanged;
   final String? Function(String?)? validator;
-  final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final double borderRadius;
   late FocusNode? focusNode=FocusNode();
@@ -88,13 +86,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             enabled: widget.isEnabled,
             maxLines: widget.maxLines,
             maxLength: widget.maxLength,
-            keyboardType: widget.secureText
-                ? TextInputType.visiblePassword
-                : widget.keyboardType,
+            keyboardType: widget.textInputType,
             decoration: InputDecoration( 
               counterText: '',             
               hintText: widget.hint,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+              contentPadding: widget.textInputType==TextInputType.multiline? const EdgeInsets.symmetric(vertical: 12,horizontal: 12): const EdgeInsets.symmetric(horizontal: 12),
               prefixIcon: widget.prefixIcon,
               suffixIcon: widget.suffixIcon,
               label: Text(
