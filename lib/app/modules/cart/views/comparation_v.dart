@@ -54,7 +54,7 @@ class ComparationView extends GetView<ShopController> {
                                 ),
                                 Text(
                                   "Product Comparison",
-                                  style: poppins48_500(),
+                                  style:isDesktop(Get.width)? poppins48_500():poppins16_500(),
                                 ),
                                 const SizedBox(height: 16),
                                 Row(
@@ -144,6 +144,24 @@ class ComparationView extends GetView<ShopController> {
                               ],
                             )
                           ],
+                        ),
+                        SizedBox(
+                          width: 242,
+                          child: Column(
+                            children:[
+                              Text(
+                                "Add A Product",style:poppins24_600()
+                              ),
+                              Gap(10),
+                              CustomDropDown(
+                                textStyle: poppins14_500().copyWith(color: whiteColor),
+                                colorButton:defaultColor,
+                                defaultValue: "Choose a product",
+                                onChanged: (val) {
+                                
+                              },)
+                            ]
+                          ),
                         )
                       ],
                     ),

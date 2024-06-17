@@ -43,21 +43,26 @@ class CustomDropDown extends StatelessWidget {
       modifiedItems.insert(0, defaultValue!);
     }
 
-    return DropdownButtonFormField<String>(
-      value: selectedValue ?? defaultValue,
-      decoration: InputDecoration(
-        labelText: labelText,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        color: colorButton
       ),
-      items: modifiedItems.map<DropdownMenuItem<String>>((dynamic value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-      onChanged: onChanged,
+      child: DropdownButtonFormField<String>(
+        value: selectedValue ?? defaultValue,
+        decoration: InputDecoration(
+          labelText: labelText,
+          border: OutlineInputBorder(            
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+        ),
+        items: modifiedItems.map<DropdownMenuItem<String>>((dynamic value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value,style: textStyle,),
+          );
+        }).toList(),
+        onChanged: onChanged,
+      ),
     );
   }
 }
