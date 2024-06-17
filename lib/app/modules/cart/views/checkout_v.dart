@@ -1,4 +1,3 @@
-import 'package:count_stepper/count_stepper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniro_fe/const/text_style.dart';
@@ -92,7 +91,7 @@ class CheckoutView extends GetView<ShopController> {
                                     Column(
                                       children: [
                                         Text("First Name",style: poppins16_500(),),
-                                        Gap(22),
+                                        const Gap(22),
                                         CustomTextFormField(
                                           width: 211,
                                           height: 75,
@@ -134,7 +133,7 @@ class CheckoutView extends GetView<ShopController> {
                                 SizedBox(
                                   width: 453,
                                   child: CustomDropDown(
-                                    stringItems: ["Sri Lanka","Indonesia","Malay"],
+                                    stringItems: const ["Sri Lanka","Indonesia","Malay"],
                                     onChanged: (val) {
                                       print(val);
                                     },
@@ -167,7 +166,7 @@ class CheckoutView extends GetView<ShopController> {
                                   width: 453,
                                   child: CustomDropDown(
                                     defaultValue: "Pilih provinsi",
-                                    stringItems: ["Jambi"],
+                                    stringItems:const  ["Jambi"],
                                     onChanged: (val) {
                                       print(val);
                                     },
@@ -274,7 +273,7 @@ class CheckoutView extends GetView<ShopController> {
                                             width: 14,
                                             decoration: BoxDecoration(
                                               color: blackColor2,
-                                              borderRadius: BorderRadius.all(Radius.circular(50))
+                                              borderRadius: const BorderRadius.all(Radius.circular(50))
                                             ),
                                           ),
                                           const Gap(15),
@@ -291,7 +290,7 @@ class CheckoutView extends GetView<ShopController> {
                                             width: 14,
                                             decoration: BoxDecoration(
                                               color: greyColor4,
-                                              borderRadius: BorderRadius.all(Radius.circular(50))
+                                              borderRadius: const BorderRadius.all(Radius.circular(50))
                                             ),
                                           ),
                                           const Gap(15),
@@ -307,7 +306,7 @@ class CheckoutView extends GetView<ShopController> {
                                             decoration: BoxDecoration(
                                               color: greyColor,
                                               border: Border.all(color: greyColor4),
-                                              borderRadius: BorderRadius.all(Radius.circular(50))
+                                              borderRadius: const BorderRadius.all(Radius.circular(50))
                                             ),
                                           ),
                                           const Gap(15),

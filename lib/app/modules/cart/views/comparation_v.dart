@@ -1,14 +1,10 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:furniro_fe/const/text_style.dart';
-import 'package:furniro_fe/widgets/custom_button.dart';
 import 'package:furniro_fe/widgets/custom_dropdown.dart';
-import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../const/common_func.dart';
 import '../../shop/controllers/shop_c.dart';
 
@@ -109,7 +105,7 @@ class ComparationView extends GetView<ShopController> {
                                   }, 
                                   onRatingUpdate: (value) {},
                                 ),
-                                SizedBox(height: 30, child: const VerticalDivider()),
+                                const SizedBox(height: 30, child: VerticalDivider()),
                                 const Gap(9),
                                 Text("204 Review",style: poppins13_400().copyWith(color: greyColor4),)
                               ],
@@ -138,7 +134,7 @@ class ComparationView extends GetView<ShopController> {
                                   }, 
                                   onRatingUpdate: (value) {},
                                 ),
-                                SizedBox(height: 30, child: const VerticalDivider()),
+                                const SizedBox(height: 30, child: VerticalDivider()),
                                 const Gap(9),
                                 Text("204 Review",style: poppins13_400().copyWith(color: greyColor4),)
                               ],
@@ -152,7 +148,7 @@ class ComparationView extends GetView<ShopController> {
                               Text(
                                 "Add A Product",style:poppins24_600()
                               ),
-                              Gap(10),
+                              const Gap(10),
                               CustomDropDown(
                                 textStyle: poppins14_500().copyWith(color: whiteColor),
                                 colorButton:defaultColor,
