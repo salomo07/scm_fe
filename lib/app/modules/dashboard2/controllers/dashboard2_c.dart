@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/pages.dart';
+
 class Dashboard2Controller extends GetxController {
   //FURNIRO Project
   Rx<String> idProductEntered="".obs;
@@ -24,6 +26,9 @@ class Dashboard2Controller extends GetxController {
     listImageRooms.add({"image":"/furniro/images/background/room1.png"});
     listImageRooms.add({"image":"/furniro/images/background/room2.png"});
     super.onReady();
+  }
+  void toDetailProduct(dynamic data){
+    Get.rootDelegate.toNamed('${Paths.shop}/${data["id"]}');    
   }
   void scrollingToTop(){
     scrollController.animateTo(

@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -10,12 +8,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../const/common_func.dart';
 import '../../../../const/text_style.dart';
 import '../../../routes/pages.dart';
-import '../../shop/controllers/shop_c.dart';
+import '../../home/views/footer.dart';
 import '../controllers/dashboard2_c.dart';
 
 class Dashboard2View extends GetView<Dashboard2Controller> {
-  Dashboard2View({super.key});
-  ShopController shopController =Get.find();
+  const Dashboard2View({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +25,6 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
         return Container(
           color: whiteColor,
           child: SingleChildScrollView(
-            controller: controller.scrollController,
             child: Column(
               children: [
                 Stack(
@@ -113,54 +109,60 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
                         leftRoom(),
                         if(isDesktop(Get.width))
                         const Gap(42),
-                        if(isDesktop(Get.width))
                         Obx(() {
                           if(controller.listImageRooms.isNotEmpty){
                           return Expanded(
-                            child: CarouselSlider.builder(
-                              itemCount: controller.listImageRooms.length,
-                              options: CarouselOptions(
+                            child:SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: controller.listImageRooms.asMap().entries.map((entry) {
+                                  int index = entry.key;
+                                  var element = entry.value;
+                                  return Row(
+                                    children: [
+                                      SizedBox(                                    
+                                        child: Stack(
+                                          children: [
+                                            Image.asset(
+                                              element["image"],
+                                              height: index==0?582:486,
+                                              width: index==0?404:372,
+                                              fit: BoxFit.fill,                                          
+                                            ),
+                                            Positioned(
+                                              bottom: 24,
+                                              left: 24,
+                                              child: Container(
+                                                width: 217,
+                                                height: 130,
+                                                color: whiteColor.withOpacity(0.7),
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    children: [
+                                                      Text("01",style: poppins16_500().copyWith(color: greyColor3),),
+                                                      const Gap(10),
+                                                      const SizedBox(width: 27,child: Divider()),
+                                                      const Gap(10),
+                                                      Text("Bed Room",style: poppins16_500().copyWith(color: greyColor3)),
+                                                    ],
+                                                  ),
+                                                  Text("Inner Peace",style: poppins28_500(),)
+                                                ],),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      const Gap(24)
+                                    ],
+                                  );
+                                },).toList(),
                               ),
-                              itemBuilder: (context, index, realIndex) {
-                                if(index==0){
-                                  return Padding(
-                                    padding: const EdgeInsets.only(right: 0),
-                                    child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset(
-                                            controller.listImageRooms[index]["image"],
-                                            height: 582,
-                                            width: 404,
-                                          ),
-                                          const SizedBox(width: 24,)
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                }else{
-                                  return Padding(
-                                    padding: const EdgeInsets.only(right: 0),
-                                    child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset(
-                                            controller.listImageRooms[index]["image"],
-                                            height: 486,
-                                            width: 372,
-                                          ),
-                                          // const SizedBox(width: 24,)
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                }
-                              }
-                            ),
+                            )
                           );
                           }
                           return const Text("");
@@ -170,37 +172,45 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
                   ),
                 ),
                 const Gap(20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Column(
-                    children: [
-                      Text("Share your setup with",style: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.w600,color: greyColor3),),
-                      Text("#FuniroFurniture",style: GoogleFonts.poppins(fontSize: 40,fontWeight: FontWeight.w700,color: blackColor2),),
-                      SizedBox(
-                        width: containerWidth,
-                        height: containerHeight,
-                        child: Obx(() {
-                          final shuffledList = controller.listImageRooms.toList();
-                          shuffledList.shuffle(Random());
-                          return Wrap(
-                            spacing: 30,
-                            runSpacing: 30,
-                            children: shuffledList.map((e) {
-                              final width = 200 + random.nextInt(200);
-                              final height = 200 + random.nextInt(200);
-                              return Image.asset(
-                                e["image"],
-                                fit: BoxFit.cover,
-                                width: width.toDouble(),
-                                height: height.toDouble(),
+                SizedBox(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        Text("Share your setup with",style: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.w600,color: greyColor3),),
+                        Text("#FuniroFurniture",style: GoogleFonts.poppins(fontSize: 40,fontWeight: FontWeight.w700,color: blackColor2),),
+                        SingleChildScrollView(
+                          scrollDirection: !isDesktop(Get.width)?Axis.horizontal:Axis.vertical,
+                          child: SizedBox(
+                            width: containerWidth,
+                            height: containerHeight,
+                            child: Obx(() {
+                              final shuffledList = controller.listImageRooms.toList();
+                              shuffledList.shuffle(Random());
+                              return Wrap(
+                                spacing: 30,
+                                runSpacing: 30,
+                                children: shuffledList.map((e) {
+                                  final width = 100 + random.nextInt(200);
+                                  final height = 100 + random.nextInt(200);
+                                  return Image.asset(
+                                    e["image"],
+                                    fit: BoxFit.cover,
+                                    width: width.toDouble(),
+                                    height: height.toDouble(),
+                                  );
+                                },).toList(),
                               );
-                            },).toList(),
-                          );
-                        },),
-                      )
-                    ],
+                            },),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                )                      
+                ),
+                if(isDesktop(Get.width-100))
+                Gap(containerHeight),
+                const FooterView()                    
               ],
             ),
           ),
@@ -211,14 +221,14 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
 
   SizedBox leftRoom() {
     return SizedBox(
-      width: 422,
+      width: isDesktop(Get.width)? 422:200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment:CrossAxisAlignment.start,
         children: [
-          Text("50+ Beautiful rooms inspiration",style: GoogleFonts.poppins(fontSize: 40,fontWeight: FontWeight.w700),),
+          Text("50+ Beautiful rooms inspiration",style: poppins40_700(),),
           const Gap(7),
-          Text("Our designer already made a lot of beautiful prototipe of rooms that inspire you",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500,color: Color(0xff616161))),
+          Text("Our designer already made a lot of beautiful prototipe of rooms that inspire you",style: poppins16_500().copyWith(color: const Color(0xff616161))),
           const Gap(25),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -316,19 +326,6 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
             children: [                          
               Text("Browse The Range",style: GoogleFonts.poppins(fontSize: 32,fontWeight: FontWeight.w700),),
               Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.",style: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.w400),),
-              // const Gap(20),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Text(""),
-              //     TextButton(
-              //       onPressed: () {
-                      
-              //       }, 
-              //       child: Text("More Categories",style: GoogleFonts.poppins(color: defaultColor),)
-              //     )
-              //   ],
-              // )
             ],
           ),
         ),
@@ -551,7 +548,7 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
                         ),
                       ),
                       onPressed: () {
-                        shopController.toDetailProduct(data);
+                        controller.toDetailProduct(data);
                       }, 
                       child: Text("Add to cart",style: GoogleFonts.poppins(color: const Color(0xffE89F71),fontSize: 16,fontWeight: FontWeight.w600),)
                     ),

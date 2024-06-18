@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/app/modules/home/views/footer.dart';
 import 'package:furniro_fe/const/text_style.dart';
+import 'package:furniro_fe/widgets/custom_dropdown.dart';
+import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../const/common_func.dart';
 import '../../../routes/pages.dart';
 import '../controllers/shop_c.dart';
 
 
 class ShopView extends GetView<ShopController> {
   const ShopView({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
@@ -162,27 +164,12 @@ class ShopListView extends GetView<ShopController> {
                     ],
                   ),
                   const Gap(56),
-                  guarantyBar()
+                  guarantyBar(),
+                  const FooterView()
                 ],
               ),
             ),
           ),
-          bottomNavigationBar: !isDesktop(Get.width)?BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Business',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: 'School',
-              ),
-            ],
-          ):null,
         );
       },
     );
@@ -348,7 +335,12 @@ class ShopListView extends GetView<ShopController> {
                     children: [
                       Text("Show",style: poppins20_400(),),
                       const Gap(17),
-                      SizedBox(width: 55, child: TextFormField())
+                      SizedBox(width: 70, child: CustomDropDown(
+                        defaultValue: "16",
+                        stringItems: ["8","16","32"],
+                        onChanged: (val) {
+                          
+                        },))
                     ],
                   ),
                   const Gap(20),
@@ -356,7 +348,12 @@ class ShopListView extends GetView<ShopController> {
                     children: [
                       Text("Short by",style: poppins20_400(),),
                       const Gap(17),
-                      SizedBox(width: 120, child: TextFormField())
+                      SizedBox(width: 120, child: SizedBox(width: 55, child: CustomDropDown(
+                        defaultValue: "Default",
+                        stringItems: ["Default","Price","Rating"],
+                        onChanged: (val) {
+                          
+                        },)))
                     ],
                   ),
                 ],

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:furniro_fe/widgets/custom_button.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-
+import '../../../../const/datadummy.dart';
 import '../../../../const/common_func.dart';
 import '../../../../const/text_style.dart';
 import '../../../routes/pages.dart';
@@ -87,20 +87,12 @@ class Home2View extends GetView<HomeController> {
                 ),),
               ),
               bottomNavigationBar: !isDesktop(Get.width)?BottomNavigationBar(
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.business),
-                    label: 'Business',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.school),
-                    label: 'School',
-                  ),
-                ],
+                items: controller.listMenu.map((element) {
+                  return BottomNavigationBarItem(
+                    icon: Icon(iconMap[element.iconCode]) ,
+                    label: element.label,
+                  );
+                },).toList(),
               ):null,
             );
           },
@@ -172,7 +164,9 @@ class Home2View extends GetView<HomeController> {
                 ),
               ),
             ),
+            const Gap(23),
             const Divider(),
+            const Gap(26),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -254,35 +248,18 @@ class Home2View extends GetView<HomeController> {
                 ],                      
               ),
               if (isDesktop(Get.width))
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.home);
-                    },
-                    child: Text("Home",style: poppins16_500().copyWith(color: Colors.black))
-                  ),
-                  const Gap(40),
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.shop);
-                    },
-                    child: Text("Shop",style: poppins16_500().copyWith(color: Colors.black))
-                  ),
-                  const Gap(40),
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.about);
-                    },
-                    child: Text("About",style: poppins16_500().copyWith(color: Colors.black))),
-                  const Gap(40),
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.about);
-                    }, 
-                    child: Text("Contact",style: poppins16_500().copyWith(color: Colors.black))),
-                ],
-              ),
+              Obx(() => 
+                Row(
+                  children:controller.listMenu.map((element) {
+                    return TextButton(
+                      onPressed: () {
+                        Get.rootDelegate.toNamed(element.path!);
+                      },
+                      child: Text(element.label!,style: poppins16_500().copyWith(color: Colors.black))
+                    );
+                  },).toList() 
+                )
+              ,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -306,5 +283,6 @@ class Home2View extends GetView<HomeController> {
       ),
     );
   }
-
 }
+
+

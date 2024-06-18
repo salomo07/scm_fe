@@ -10,6 +10,12 @@ var dataRole=[
 ];
 var dataMenu=[
   {
+    "idMenu": "000",
+    "label": "Home",
+    "iconCode":"home",
+    "path": "/home",
+  },
+  {
     "idMenu": "001",
     "label": "Shop",
     "iconCode":"shop",
@@ -22,22 +28,10 @@ var dataMenu=[
     "path": "/home/about",
   },
   {
-    "idMenu": "005",
-    "label": "Transaksi",
-    "iconCode":"transaction",
-    "subMenu": [
-      {
-        "idMenu": "submenu003",
-        "label": "Transaksi Masuk",
-        "path": "/home/www"
-      }
-    ]
-  },
-  {
-    "idMenu": "006",
-    "label": "Setting",
-    "iconCode":"settings",
-    "path": "/home/settings",
+    "idMenu": "003",
+    "label": "Contact",
+    "iconCode":"contact",
+    "path": "/home/contact",
   },
   {
     "idMenu": "007",
@@ -82,9 +76,11 @@ var dataDetailProducts={
     "review":["Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel."]
   };
 Map<String, IconData> iconMap = {
+  'home': Icons.dashboard,
   'dashboard': Icons.dashboard,
   'shop': Icons.shopify,
   'about': Icons.info_outline,
+  'contact': Icons.perm_contact_cal,
   'transaction': Icons.attach_money_outlined,
   'settings': Icons.settings,
   'administrator': Icons.supervisor_account,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniro_fe/app/modules/cart/bindings/cart_b.dart';
 import 'package:furniro_fe/app/modules/cart/views/comparation_v.dart';
+import 'package:furniro_fe/app/modules/contact/views/contact_v.dart';
 import 'package:furniro_fe/app/modules/shop/bindings/shop_b.dart';
 import 'package:furniro_fe/app/modules/shop/views/shop_detail_v.dart';
 import 'package:furniro_fe/app/modules/shop/views/shop_v.dart';
@@ -14,6 +15,7 @@ import '../modules/administrator/bindings/adm_b.dart';
 import '../modules/administrator/views/adm_role_v.dart';
 import '../modules/cart/views/cart_v.dart';
 import '../modules/cart/views/checkout_v.dart';
+import '../modules/contact/bindings/contact_b.dart';
 import '../modules/dashboard/bindings/dashboard_b.dart';
 import '../modules/dashboard/views/dashboard_v.dart';
 import '../modules/dashboard/views/default_v.dart';
@@ -67,17 +69,9 @@ class Pages {
             ),
           ]
         ),
-        // GetPage(
-        //   name: Paths.dashboard,
-        //   middlewares: [
-        //     EnsureAuthedMiddleware(),
-        //   ],
-        //   page: () => const DashboardView(),
-        //   bindings: DashboardBinding().dependencies(),
-        // ),
         GetPage(
           name: Paths.dashboard2,
-          page: () => Dashboard2View(),
+          page: () => const Dashboard2View(),
           bindings: [Dashboard2Binding()],
         ),
         GetPage(          
@@ -113,7 +107,7 @@ class Pages {
             ),
             GetPage(
               name: Paths.settings,
-              page: () => const Text("ssss"),
+              page: () => const Text("settings"),
               bindings: [
                 SettingsBinding(),
               ],
@@ -129,8 +123,14 @@ class Pages {
         GetPage(
           name: Paths.about,
           page: () => const AboutView(),
-          transition: Transition.circularReveal,
+          transition: Transition.size,
           bindings: [AboutBinding()],
+        ),
+        GetPage(
+          name: Paths.contact,
+          page: () => ContactView(),
+          transition: Transition.size,
+          bindings: [ContactBinding()],
         ),
         GetPage(
           name: Paths.cart,
@@ -158,7 +158,7 @@ class Pages {
           children: [
             GetPage(
               name: "/shop-list",
-              page: () => const ShopListView(),
+              page: () => ShopListView(),
               bindings: [ShopBinding()],
             ),
             GetPage(
