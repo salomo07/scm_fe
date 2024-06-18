@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -28,13 +29,16 @@ class FooterView extends GetView<HomeController> {
               alignment: WrapAlignment.center,
               spacing: 50,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Funiro.",style: poppins24_700(),),
-                    const Gap(50),
-                    Text("400 University Drive Suite 200 Coral Gables,\nFL 33134 USA",style: poppins16_400().copyWith(color: greyColor4),)
-                  ],
+                SizedBox(
+                  height: 200,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Funiro.",style: poppins24_700(),),
+                      const Gap(50),
+                      Flexible(child: Text("400 University Drive Suite 200 Coral Gables,\nFL 33134 USA",style: poppins16_400().copyWith(color: greyColor4),))
+                    ],
+                  ),
                 ),
                 Obx(() => 
                   Column(
@@ -50,7 +54,7 @@ class FooterView extends GetView<HomeController> {
                             child: Column(
                               children: [
                                 Text(e.label!,style: poppins16_500(),),
-                                const Gap(46),
+                                const Gap(20),
                               ],
                             ),
                           );
@@ -72,7 +76,7 @@ class FooterView extends GetView<HomeController> {
                           child: Column(
                             children: [
                               Text("Payment Options",style: poppins16_500(),),
-                              const Gap(46),
+                              const Gap(20),
                             ],
                           ),
                         ),
@@ -83,7 +87,7 @@ class FooterView extends GetView<HomeController> {
                           child: Column(
                             children: [
                               Text("Returns",style: poppins16_500(),),
-                              const Gap(46),
+                              const Gap(20),
                             ],
                           ),
                         ),
@@ -94,7 +98,7 @@ class FooterView extends GetView<HomeController> {
                           child: Column(
                             children: [
                               Text("Privacy Policies",style: poppins16_500(),),
-                              const Gap(46),
+                              const Gap(20),
                             ],
                           ),
                         )

@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/const/common_func.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import '../../../../const/datadummy.dart';
 import '../../../../const/text_style.dart';
+import '../../../../models/detail_product_m.dart';
 import '../../../../models/menu.dart';
 import '../../../middleware/auth_controller.dart';
 import '../../../routes/pages.dart';
@@ -21,13 +23,14 @@ class HomeController extends GetxController {
   RxBool isSearching = false.obs;
   RxBool isDrawerOpened = false.obs;
   Rx<Menu> selectedMenu = Menu().obs;
+  Rx<int> selectedIndexMenu = 0.obs;
   Rx<Menu> selectedSubMenu = Menu().obs;
   Rx<String> idMenuSelected = "".obs;
   Rx<String> idSubMenuSelected = "".obs;
   RxList<Menu> listMenu = <Menu>[].obs;
   RxList<Widget> menuWidget = <Widget>[].obs;
   Rx<bool> isRightMenuOpened = false.obs;
-
+  RxList<DetailProduct> listtProductCart = <DetailProduct>[].obs;
   
   final AuthController authController = Get.find<AuthController>();
 
@@ -43,6 +46,7 @@ class HomeController extends GetxController {
   void onReady() {
     getMenus();
     idMenuSelected.value="000";
+    getItemCart();
     super.onReady();
   }
   
@@ -59,6 +63,14 @@ class HomeController extends GetxController {
     idMenuSelected.value="000";
     selectedMenu.value=Menu(idMenu: '000',path: Paths.dashboard);
     Get.rootDelegate.toNamed(Paths.dashboard);
+  }
+  getItemCart(){
+    var jsonCart=getHive("cart");
+    if(jsonCart!=null){
+      Future.delayed(const Duration(seconds: 1),() {
+        // listtProductCart.value=detailProductFromJson(json.encode(dataDetailProducts));
+      },);
+    }
   }
   Widget createWidgetMenus(Menu menu) {
     bool isMenuHaveSubmenu = menu.subMenu != null && menu.subMenu!.isNotEmpty ? true : false;

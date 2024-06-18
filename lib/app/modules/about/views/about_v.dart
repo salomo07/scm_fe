@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 
 import '../../home/views/footer.dart';
+import '../../home/views/guarantybar.dart';
 
 
 class AboutView extends GetView<AboutController> {
@@ -73,6 +74,7 @@ class AboutView extends GetView<AboutController> {
                       children: [
                       const Gap(50),
                       Wrap(
+                        alignment: WrapAlignment.center,
                         spacing: 30,
                         children: [
                           SizedBox(
@@ -91,6 +93,7 @@ class AboutView extends GetView<AboutController> {
                           SizedBox(
                             width: 393,
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 SizedBox(
                                   child: Column(
@@ -102,6 +105,7 @@ class AboutView extends GetView<AboutController> {
                                       Padding(
                                         padding: const EdgeInsets.symmetric(horizontal: 10),
                                         child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text("Categories",style: poppins24_500(),),
@@ -109,6 +113,7 @@ class AboutView extends GetView<AboutController> {
                                             Padding(
                                               padding: const EdgeInsets.symmetric(horizontal: 20),
                                               child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                 children: [
                                                   categoriesItem("Crafts",2.toString()),
@@ -153,12 +158,14 @@ class AboutView extends GetView<AboutController> {
                             ),
                           )
                         ],
-                      )
+                      ),
+                      const Gap(20),
+                      pagination()
                       ],
                     ),
                   ),
                   const Gap(56),
-                  guarantyBar(),
+                  const GuarantyBar(),
                   const FooterView()
                 ],
               ),
@@ -168,7 +175,72 @@ class AboutView extends GetView<AboutController> {
       },
     );
   }
-
+  Row pagination() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: defaultColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(66, 66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("1",style: poppins16_600(),)
+        ),
+        const Gap(38),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: filterBarColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(66, 66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("2",style: poppins16_400(),)
+        ),
+        const Gap(38),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: filterBarColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(66, 66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("3",style: poppins16_400(),)
+        ),
+        const Gap(38),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: filterBarColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(166,66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("Next",style: poppins16_400(),)
+        )
+      ],
+    );
+  }
   recentPost(image,title,date) {
     return Column(
     children: [
@@ -288,186 +360,6 @@ class AboutView extends GetView<AboutController> {
           ],
         )
       ],
-    );
-  }
-
-  guarantyBar() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Container(
-        color: filterBarColor,
-        height: 270,
-        child: Align(
-          alignment: Alignment.center,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.emoji_events, size: 52),
-                    const Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, 
-                      children: [
-                        Text("High Quality", style: poppins25_600()),
-                        const Gap(2),
-                        Flexible(
-                          child: Text(
-                            "crafted from top materials",
-                            style: poppins20_500().copyWith(color: greyColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.shield, size: 52),
-                    const Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
-                      children: [
-                        Text("Warranty Protection", style: poppins25_600()),
-                        const Gap(2),
-                        Text(
-                          "Over 2 years",
-                          style: poppins20_500().copyWith(color: greyColor),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.delivery_dining_outlined, size: 52),
-                    const Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center, 
-                      children: [
-                        Text("Free Shipping", style: poppins25_600()),
-                        const Gap(2),
-                        Text(
-                          "Order over 150 \$",
-                          style: poppins20_500().copyWith(color: greyColor),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),              
-              SizedBox(
-                width: 337,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.support_agent, size: 52),
-                    const Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start, // Align text content to start
-                      mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
-                      children: [
-                        Text("24 / 7 Support", style: poppins25_600()),
-                        const Gap(2),
-                        Flexible(
-                          child: Text(
-                            "Dedicated support",
-                            style: poppins20_500().copyWith(color: greyColor),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  filterBar() {
-    return Container(
-      width: Get.width,
-      color: filterBarColor,
-      // height: 100,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: Wrap(
-          runAlignment: WrapAlignment.center,
-          spacing: 5, // Spasi antara widget dalam baris
-          runSpacing: 5, // Spasi antara baris
-          alignment: WrapAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Wrap(
-                    spacing: 24,
-                    runSpacing: 24,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(Icons.filter_list_outlined),
-                          const Gap(12),
-                          Text("Filter",style: poppins20_400(),)
-                        ],
-                      ),
-                      const SizedBox(child: Icon(Icons.grid_view_rounded)),
-                      const Icon(Icons.calendar_view_day_sharp),
-                    ],
-                  ),
-                  const Gap(20),
-                  const SizedBox(height: 50, child: VerticalDivider()),
-                  const Gap(34), // Menggunakan VerticalDivider untuk memisahkan secara vertikal
-                  Flexible(child: Text("Showing 1–16 of 32 results",style: poppins20_400(),)),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 100,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    children: [
-                      Text("Show",style: poppins20_400(),),
-                      const Gap(17),
-                      SizedBox(width: 55, child: TextFormField())
-                    ],
-                  ),
-                  const Gap(20),
-                  Row(
-                    children: [
-                      Text("Short by",style: poppins20_400(),),
-                      const Gap(17),
-                      SizedBox(width: 120, child: TextFormField())
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

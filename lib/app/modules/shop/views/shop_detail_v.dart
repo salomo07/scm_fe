@@ -156,7 +156,6 @@ class ShopDetailView extends GetView<ShopController> {
                           ),
                         ),
                         const Gap(92),
-                        const Divider(),
                         SizedBox(width: Get.width, child: const FooterView())
                       ],
                     );

@@ -34,77 +34,77 @@ TextStyle playfairDisplayTextFont = GoogleFonts.playfairDisplay().copyWith(
   fontWeight: FontWeight.w300
 );
 TextStyle montserrat34_700(){
-  return GoogleFonts.montserrat(fontSize: 34,fontWeight: FontWeight.w700);
+  return GoogleFonts.montserrat(fontSize: 34,fontWeight: FontWeight.w700,color: Colors.black);
 }
 TextStyle poppins12_300() {
-  return GoogleFonts.getFont('Poppins',fontSize: 12, fontWeight: FontWeight.w300);
+  return GoogleFonts.getFont('Poppins',fontSize: 12, fontWeight: FontWeight.w300,color: Colors.black);
 }
 TextStyle poppins12_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 12, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 12, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins13_400() {
-  return GoogleFonts.getFont('Poppins',fontSize: 13, fontWeight: FontWeight.w400);
+  return GoogleFonts.getFont('Poppins',fontSize: 13, fontWeight: FontWeight.w400,color: Colors.black);
 }
 TextStyle poppins14_400() {
-  return GoogleFonts.getFont('Poppins',fontSize: 14, fontWeight: FontWeight.w400);
+  return GoogleFonts.getFont('Poppins',fontSize: 14, fontWeight: FontWeight.w400,color: Colors.black);
 }
 TextStyle poppins14_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 14, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 14, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins16_300() {
-  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w300);
+  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w300,color: Colors.black);
 }
 TextStyle poppins16_400() {
-  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w400);
+  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w400,color: Colors.black);
 }
 TextStyle poppins16_600() {
-  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w600);
+  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w600,color: Colors.black);
 }
 TextStyle poppins16_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 16, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins18_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 18, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 18, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins20_400() {
-  return GoogleFonts.getFont('Poppins',fontSize: 20, fontWeight: FontWeight.w400);
+  return GoogleFonts.getFont('Poppins',fontSize: 20, fontWeight: FontWeight.w400,color: Colors.black);
 }
 TextStyle poppins20_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 20, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 20, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins24_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins24_600() {
-  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w600);
+  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w600,color: Colors.black);
 }
 TextStyle poppins24_700() {
-  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w700);
+  return GoogleFonts.getFont('Poppins',fontSize: 24, fontWeight: FontWeight.w700,color: Colors.black);
 }
 TextStyle poppins25_600() {
-  return GoogleFonts.getFont('Poppins',fontSize: 25, fontWeight: FontWeight.w600);
+  return GoogleFonts.getFont('Poppins',fontSize: 25, fontWeight: FontWeight.w600,color: Colors.black);
 }
 TextStyle poppins28_500(){
-  return GoogleFonts.getFont('Poppins',fontSize: 28, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 28, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins30_500(){
-  return GoogleFonts.getFont('Poppins',fontSize: 30, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 30, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins32_600() {
-  return GoogleFonts.getFont('Poppins',fontSize: 32, fontWeight: FontWeight.w600);
+  return GoogleFonts.getFont('Poppins',fontSize: 32, fontWeight: FontWeight.w600,color: Colors.black);
 }
 TextStyle poppins36_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 36, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 36, fontWeight: FontWeight.w500,color: Colors.black);
 }
 TextStyle poppins36_600() {
-  return GoogleFonts.getFont('Poppins',fontSize: 36, fontWeight: FontWeight.w600);
+  return GoogleFonts.getFont('Poppins',fontSize: 36, fontWeight: FontWeight.w600,color: Colors.black);
 }
 TextStyle poppins40_700() {
-  return GoogleFonts.getFont('Poppins',fontSize: 40, fontWeight: FontWeight.w700);
+  return GoogleFonts.getFont('Poppins',fontSize: 40, fontWeight: FontWeight.w700,color: Colors.black);
 }
 TextStyle poppins42_400() {
-  return GoogleFonts.getFont('Poppins',fontSize: 42, fontWeight: FontWeight.w400);
+  return GoogleFonts.getFont('Poppins',fontSize: 42, fontWeight: FontWeight.w400,color: Colors.black);
 }
 TextStyle poppins48_500() {
-  return GoogleFonts.getFont('Poppins',fontSize: 48, fontWeight: FontWeight.w500);
+  return GoogleFonts.getFont('Poppins',fontSize: 48, fontWeight: FontWeight.w500,color: Colors.black);
 }

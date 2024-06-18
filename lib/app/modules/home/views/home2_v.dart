@@ -86,14 +86,36 @@ class Home2View extends GetView<HomeController> {
                   ),
                 ),),
               ),
-              bottomNavigationBar: !isDesktop(Get.width)?BottomNavigationBar(
-                items: controller.listMenu.map((element) {
-                  return BottomNavigationBarItem(
-                    icon: Icon(iconMap[element.iconCode]) ,
-                    label: element.label,
-                  );
-                },).toList(),
-              ):null,
+              bottomNavigationBar:!isDesktop(Get.width)?Obx(() => 
+                BottomNavigationBar(
+                  currentIndex: controller.selectedIndexMenu.value,
+                  onTap: (index) {
+                    controller.selectedIndexMenu.value=index;
+                    controller.selectedMenu.value=controller.listMenu[index];
+                    controller.idMenuSelected.value=controller.selectedMenu.value.idMenu!;
+                    Get.rootDelegate.toNamed(controller.listMenu[index].path!);
+                  },
+                  selectedItemColor: defaultColor,
+                  unselectedItemColor: greyColor4,
+                  items:controller.listMenu.length>=2? controller.listMenu.map((element) {
+                    return BottomNavigationBarItem(
+                      backgroundColor: filterBarColor,
+                      icon: Icon(iconMap[element.iconCode]) ,
+                      label: element.label,
+                    );
+                  },).toList()
+                  :
+                  [
+                    BottomNavigationBarItem(
+                      icon: Icon(iconMap["home"]) ,
+                      label: "Home",
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(iconMap["shop"]) ,
+                      label: "Shop",
+                    )
+                  ],
+                )):null,
             );
           },
         );
@@ -253,6 +275,8 @@ class Home2View extends GetView<HomeController> {
                   children:controller.listMenu.map((element) {
                     return TextButton(
                       onPressed: () {
+                        controller.selectedMenu.value=element;
+                        controller.idMenuSelected.value=controller.selectedMenu.value.idMenu!;
                         Get.rootDelegate.toNamed(element.path!);
                       },
                       child: Text(element.label!,style: poppins16_500().copyWith(color: Colors.black))

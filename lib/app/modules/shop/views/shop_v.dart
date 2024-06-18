@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:furniro_fe/app/modules/home/views/footer.dart';
+import 'package:furniro_fe/app/modules/home/views/guarantybar.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:furniro_fe/widgets/custom_dropdown.dart';
 import 'package:furniro_fe/widgets/custom_textformfield.dart';
@@ -99,79 +101,83 @@ class ShopListView extends GetView<ShopController> {
                     },),
                   ),
                   const Gap(70),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: defaultColor,// Button background color
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3), // Reduced corner radius
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                          maximumSize: const Size(66, 66),
-                        ),                                  
-                        onPressed: () {
-                          
-                        }, 
-                        child: Text("1",style: GoogleFonts.poppins(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w700),)
-                      ),
-                      const Gap(38),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: filterBarColor,// Button background color
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3), // Reduced corner radius
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                          maximumSize: const Size(66, 66),
-                        ),                                  
-                        onPressed: () {
-                          
-                        }, 
-                        child: Text("2",style: GoogleFonts.poppins(color: blackColor2 ,fontSize: 16,fontWeight: FontWeight.w400),)
-                      ),
-                      const Gap(38),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: filterBarColor,// Button background color
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3), // Reduced corner radius
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                          maximumSize: const Size(66, 66),
-                        ),                                  
-                        onPressed: () {
-                          
-                        }, 
-                        child: Text("3",style: GoogleFonts.poppins(color: blackColor2 ,fontSize: 16,fontWeight: FontWeight.w400),)
-                      ),
-                      const Gap(38),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: filterBarColor,// Button background color
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3), // Reduced corner radius
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                          maximumSize: const Size(166,66),
-                        ),                                  
-                        onPressed: () {
-                          
-                        }, 
-                        child: Text("Next",style: GoogleFonts.poppins(color: blackColor2 ,fontSize: 16,fontWeight: FontWeight.w400),)
-                      )
-                    ],
-                  ),
+                  pagination(),
                   const Gap(56),
-                  guarantyBar(),
-                  const FooterView()
+                  const GuarantyBar(),
+                  SizedBox(width: Get.width,child: const FooterView())
                 ],
               ),
             ),
           ),
         );
       },
+    );
+  }
+
+  Row pagination() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: defaultColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(66, 66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("1",style: poppins16_400(),)
+        ),
+        const Gap(38),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: filterBarColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(66, 66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("2",style: poppins16_400(),)
+        ),
+        const Gap(38),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: filterBarColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(66, 66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("3",style: poppins16_400(),)
+        ),
+        const Gap(38),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: filterBarColor,// Button background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3), // Reduced corner radius
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            maximumSize: const Size(166,66),
+          ),                                  
+          onPressed: () {
+            
+          }, 
+          child: Text("Next",style: poppins16_400(),)
+        )
+      ],
     );
   }
 

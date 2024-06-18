@@ -11,6 +11,7 @@ class ShopController extends GetxController {
 
   //FURNIRO Project
   Rx<String> idProductEntered="".obs;
+  Rx<String> idProductRelatedEntered="".obs;
   RxList<dynamic> listProducts = <dynamic>[].obs;
   RxList<dynamic> listImageRooms = <dynamic>[].obs;
   RxList<dynamic> listImageRelatedProduct = <dynamic>[].obs;
