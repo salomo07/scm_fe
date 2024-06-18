@@ -172,7 +172,9 @@ class Home2View extends GetView<HomeController> {
                 ),
               ),
             ),
+            const Gap(23),
             const Divider(),
+            const Gap(26),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -254,35 +256,18 @@ class Home2View extends GetView<HomeController> {
                 ],                      
               ),
               if (isDesktop(Get.width))
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.home);
-                    },
-                    child: Text("Home",style: poppins16_500().copyWith(color: Colors.black))
-                  ),
-                  const Gap(40),
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.shop);
-                    },
-                    child: Text("Shop",style: poppins16_500().copyWith(color: Colors.black))
-                  ),
-                  const Gap(40),
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.about);
-                    },
-                    child: Text("About",style: poppins16_500().copyWith(color: Colors.black))),
-                  const Gap(40),
-                  TextButton(
-                    onPressed: () {
-                      Get.rootDelegate.toNamed(Paths.about);
-                    }, 
-                    child: Text("Contact",style: poppins16_500().copyWith(color: Colors.black))),
-                ],
-              ),
+              Obx(() => 
+                Row(
+                  children:controller.listMenu.map((element) {
+                    return TextButton(
+                      onPressed: () {
+                        Get.rootDelegate.toNamed(element.path!);
+                      },
+                      child: Text(element.label!,style: poppins16_500().copyWith(color: Colors.black))
+                    );
+                  },).toList() 
+                )
+              ,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -306,5 +291,4 @@ class Home2View extends GetView<HomeController> {
       ),
     );
   }
-
 }

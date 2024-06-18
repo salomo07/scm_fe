@@ -1,14 +1,18 @@
+import 'package:count_stepper/count_stepper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:furniro_fe/app/modules/about/controllers/about_c.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../../../const/common_func.dart';
 import '../../../../widgets/custom_button.dart';
+import '../controllers/contact_c.dart';
 
 
-class AboutView extends GetView<AboutController> {
-  const AboutView({super.key});
+class ContactView extends GetView<ContactController> {
+  const ContactView({super.key});
 
   @override
   Widget build(BuildContext context) {    
@@ -16,6 +20,7 @@ class AboutView extends GetView<AboutController> {
       builder: (context, constraints) {        
         return Scaffold(
           body: Container(
+            // height: Get.height,
             width: Get.width,
             color: whiteColor,
             child: SingleChildScrollView(
@@ -47,7 +52,7 @@ class AboutView extends GetView<AboutController> {
                                   fit: BoxFit.fill,
                                 ),
                                 Text(
-                                  "Blog",
+                                  "Contact",
                                   style: poppins48_500(),
                                 ),
                                 const SizedBox(height: 16),
@@ -56,7 +61,7 @@ class AboutView extends GetView<AboutController> {
                                   children: [
                                     Text("Home", style: poppins16_500()),
                                     const Icon(Icons.arrow_forward),
-                                    Text("Blog", style: poppins16_300()),
+                                    Text("Contact", style: poppins16_300()),
                                   ],
                                 ),
                               ],
@@ -66,92 +71,141 @@ class AboutView extends GetView<AboutController> {
                       ),
                     ],
                   ),
-                  const Gap(100),
                   SizedBox(
                     child: Column(
                       children: [
                       Gap(50),
-                      Wrap(
-                        spacing: 30,
-                        children: [
-                          SizedBox(
-                            width: 820,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  headlinePost("/furniro/images/products/blog1.png","Going all-in with millennial design","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.","Admin","14 Oct 2022","Wood"),
-                                  headlinePost("/furniro/images/products/blog2.png","Going all-in with millennial design","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.","Admin","14 Oct 2022","Wood"),
-                                ],
-                              ),
-                            ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                          width: 644,
+                          child: Column(
+                            children: [
+                              Text("Get In Touch With Us",style: poppins36_600(),),
+                              const Gap(7),
+                              Text("For More Information About Our Product & Services. Please Feel Free To Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!",style: poppins16_400().copyWith(color: greyColor4),)
+                            ],
                           ),
-                          SizedBox(
-                            width: 393,
-                            child: Column(
-                              children: [
-                                SizedBox(
+                        ),
+                      ),
+                      SizedBox(
+                        // width: 1058,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Wrap(
+                            children: [
+                              SizedBox(
+                                width: 393,
+                                child: Center(
                                   child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      CustomTextFormField(width: 311,label: "", textStyle: poppinsTextFont,suffixIcon: IconButton(onPressed: () {
-                                        
-                                      }, icon: const Icon(Icons.search)), controller: TextEditingController()),
-                                      const Gap(43),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text("Categories",style: poppins24_500(),),
-                                            const Gap(33),
-                                            Padding(
-                                              padding: const EdgeInsets.symmetric(horizontal: 20),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  categoriesItem("Crafts",2.toString()),
-                                                  categoriesItem("Design",8.toString()),
-                                                  categoriesItem("Handmade",7.toString()),
-                                                  categoriesItem("Interior",1.toString()),
-                                                  categoriesItem("Wood",6.toString()),
-                                                ],
-                                              ),
-                                            )
-                                            
-                                          ],
-                                        ),
+                                      const Gap(100),
+                                      Row(
+                                        children: [
+                                          const Icon(Icons.map),
+                                          const Gap(20),
+                                          SizedBox(
+                                            width: 212,
+                                            child: Column(
+                                              children: [
+                                                Text("Address",style: poppins24_500(),),
+                                                Text("236 5th SE Avenue, New York NY10000, United States",style: poppins16_400(),),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(42),
+                                      Row(
+                                        children: [
+                                          const Icon(Icons.phone),
+                                          const Gap(20),
+                                          SizedBox(
+                                            width: 212,
+                                            child: Column(
+                                              children: [
+                                                Text("Phone",style: poppins24_500(),),
+                                                Text("Mobile: +(84) 546-6789\nHotline: +(84) 456-6789",style: poppins16_400(),),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const Gap(42),
+                                      Row(
+                                        children: [
+                                          const Icon(Icons.timer_outlined),
+                                          const Gap(20),
+                                          SizedBox(
+                                            width: 212,
+                                            child: Column(
+                                              children: [
+                                                Text("Working Time",style: poppins24_500(),),
+                                                Text("Monday-Friday: 9:00 - 22:00\nSaturday-Sunday: 9:00 - 21:00",style: poppins16_400(),),
+                                              ],
+                                            ),
+                                          )
+                                        ],
                                       )
                                     ],
                                   ),
                                 ),
-                                SizedBox(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                                    child: Column(
+                              ),
+                              SizedBox(
+                                width: 635,
+                                child: Column(
+                                  children: [
+                                    const Gap(100),
+                                    Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text("Recent Posts",style: poppins24_500(),),
-                                        const Gap(26),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              recentPost("/furniro/images/products/postmini1.png","Going all-in with millennial design","03 Aug 2022"),
-                                              recentPost("/furniro/images/products/postmini2.png","Exploring new ways of decorating","03 Aug 2022"),
-                                              recentPost("/furniro/images/products/postmini3.png","Handmade pieces that took time to make","03 Aug 2022"),                                          
-                                            ],
-                                          ),
+                                        Text("Your name",style: poppins16_500(),),
+                                        const Gap(22),
+                                        CustomTextFormField(label: "",hint: "ABC",width: 329, textStyle: poppins16_400(), controller: TextEditingController())
+                                      ],
+                                    ),
+                                    const Gap(36),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Email address",style: poppins16_500(),),
+                                        const Gap(22),
+                                        CustomTextFormField(label: "",hint: "Abc@def.com",width: 329, textStyle: poppins16_400(), controller: TextEditingController())
+                                      ],
+                                    ),
+                                    const Gap(36),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Subject",style: poppins16_500(),),
+                                        const Gap(22),
+                                        CustomTextFormField(label: "",hint: "This is an optional",width: 329, textStyle: poppins16_400(), controller: TextEditingController())
+                                      ],
+                                    ),
+                                    const Gap(36),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Message",style: poppins16_500(),),
+                                        const Gap(22),
+                                        CustomTextFormField(label: "",hint: "Hi! i’d like to ask about",width: 329, textStyle: poppins16_400(), controller: TextEditingController(),
+                                        textInputType: TextInputType.multiline,
+                                        height: 75,
+                                        maxLines: 3,
                                         )
                                       ],
                                     ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                                    const Gap(36),
+                                    CustomButton(text: "Submit",width: 237,textStyle: poppins14_400().copyWith(color: whiteColor), onPressed: () {
+                                      
+                                    },colorButton: defaultColor,)
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       )
                       ],
                     ),
@@ -164,128 +218,6 @@ class AboutView extends GetView<AboutController> {
           ),
         );
       },
-    );
-  }
-
-  recentPost(image,title,date) {
-    return Column(
-    children: [
-      SizedBox(
-        height: 80,
-        child: InkWell(
-          onTap: () {},
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  image,
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover, // Adjust the fit as needed
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      title,
-                      style: poppins14_400(),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      date,
-                      style: poppins12_300().copyWith(color: greyColor4),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      const SizedBox(height: 10), // Adding gap between posts
-    ],
-  );
-  }
-
-  categoriesItem(name,qty) {
-    return InkWell(
-      onTap: () {},
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(name,style: poppins16_400().copyWith(color: greyColor4),),
-              Text(qty,style: poppins16_400().copyWith(color: greyColor4),),
-            ],
-          ),
-          const Gap(40)
-        ],
-      ),
-    );
-  }
-
-  headlinePost(image,title,desc,username,postdate,tags) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          child: Image.asset(image,
-            width: 817,
-            height: 500
-          ),
-        ),
-        Gap(17),
-        metaData(username,postdate,tags),
-        Gap(15),
-        Text(title,style: poppins30_500(),),
-        Gap(12),
-        Text(desc,style: poppins14_400(),),
-        Gap(30),
-        InkWell(
-          onTap: () {},
-          child: Text("Read More",style: poppins16_400(),)),
-        Gap(30),
-      ],
-    );
-  }
-
-  Row metaData(username,postdate,tags) {
-    return Row(
-      children: [
-        Row(
-          children: [
-            Icon(Icons.person,color: greyColor4,),
-            Gap(2),
-            Text(username,style: poppins16_400().copyWith(color: greyColor4),),
-          ],
-        ),
-        const Gap(35),
-        Row(
-          children: [
-            Icon(Icons.calendar_month,color: greyColor4,),
-            const Gap(2),
-            Text(postdate,style: poppins16_400().copyWith(color: greyColor4),),
-          ],
-        ),
-        const Gap(35),
-        Row(
-          children: [
-            Icon(Icons.text_rotation_angledown,color: greyColor4,),
-            Gap(2),
-            Text(tags,style: poppins16_400().copyWith(color: greyColor4),),
-          ],
-        )
-      ],
     );
   }
 
