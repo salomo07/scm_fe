@@ -7,10 +7,11 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../const/common_func.dart';
 import '../../../../widgets/custom_button.dart';
-import '../../shop/controllers/shop_c.dart';
+import '../../home/views/footer.dart';
+import '../controllers/cart_c.dart';
 
 
-class CartView extends GetView<ShopController> {
+class CartView extends GetView<CartController> {
   const CartView({super.key});
 
   @override
@@ -81,7 +82,7 @@ class CartView extends GetView<ShopController> {
                             child: SizedBox(
                               width: 781,
                               child: DataTable(
-                                headingRowColor: MaterialStateColor.resolveWith((states) => filterBarColor),
+                                headingRowColor: WidgetStateColor.resolveWith((states) => filterBarColor),
                                 columns: [
                                   DataColumn(label: SizedBox(width: 250, child: Text("Product",style: poppins16_500(),)),),
                                   DataColumn(label:SizedBox(width: 100, child: Text("Price",style: poppins16_500())),),
@@ -123,8 +124,7 @@ class CartView extends GetView<ShopController> {
                                   )
                                 ],
                               ),
-                            )
-                              
+                            )                              
                           ),
                           Container(
                             width:340,
@@ -172,27 +172,12 @@ class CartView extends GetView<ShopController> {
                     ),
                   ),
                   const Gap(56),
-                  guarantyBar() 
+                  guarantyBar(),
+                  const FooterView()
                 ],
               ),
             ),
           ),
-          bottomNavigationBar: !isDesktop(Get.width)?BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Business',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: 'School',
-              ),
-            ],
-          ):null,
         );
       },
     );

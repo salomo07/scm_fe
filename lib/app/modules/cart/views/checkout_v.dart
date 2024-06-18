@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/app/modules/home/views/footer.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:furniro_fe/widgets/custom_button.dart';
 import 'package:furniro_fe/widgets/custom_dropdown.dart';
@@ -78,7 +79,7 @@ class CheckoutView extends GetView<ShopController> {
                         runSpacing: 26,                  
                         children: [
                           SizedBox(
-                            width: 608,
+                            width: 508,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -135,7 +136,7 @@ class CheckoutView extends GetView<ShopController> {
                                   child: CustomDropDown(
                                     stringItems: const ["Sri Lanka","Indonesia","Malay"],
                                     onChanged: (val) {
-                                      print(val);
+                                      
                                     },
                                   ),
                                 ),
@@ -168,7 +169,7 @@ class CheckoutView extends GetView<ShopController> {
                                     defaultValue: "Pilih provinsi",
                                     stringItems:const  ["Jambi"],
                                     onChanged: (val) {
-                                      print(val);
+                                      
                                     },
                                   ),
                                 ),
@@ -339,27 +340,11 @@ class CheckoutView extends GetView<ShopController> {
                   ),
                   const Gap(56),
                   guarantyBar(),
-                  
+                  const FooterView()
                 ],
               ),
             ),
           ),
-          bottomNavigationBar: !isDesktop(Get.width)?BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Business',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: 'School',
-              ),
-            ],
-          ):null,
         );
       },
     );

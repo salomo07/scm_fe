@@ -13,6 +13,9 @@ abstract class Paths {
   static const checkout = '$home/checkout';
   static const comparation = '$home/comparation';
 
+  static const contact = '$home/contact';
+
+
   static const shop = '$home/shop';
   static const shopList = '/shop-list';
 
