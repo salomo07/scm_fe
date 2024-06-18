@@ -81,7 +81,7 @@ class CartView extends GetView<ShopController> {
                             child: SizedBox(
                               width: 781,
                               child: DataTable(
-                                headingRowColor: MaterialStateColor.resolveWith((states) => filterBarColor),
+                                headingRowColor: WidgetStateColor.resolveWith((states) => filterBarColor),
                                 columns: [
                                   DataColumn(label: SizedBox(width: 250, child: Text("Product",style: poppins16_500(),)),),
                                   DataColumn(label:SizedBox(width: 100, child: Text("Price",style: poppins16_500())),),

@@ -71,7 +71,7 @@ class Pages {
         ),
         GetPage(
           name: Paths.dashboard2,
-          page: () => Dashboard2View(),
+          page: () => const Dashboard2View(),
           bindings: [Dashboard2Binding()],
         ),
         GetPage(          
@@ -128,7 +128,7 @@ class Pages {
         ),
         GetPage(
           name: Paths.contact,
-          page: () => const ContactView(),
+          page: () => ContactView(),
           transition: Transition.size,
           bindings: [ContactBinding()],
         ),
@@ -158,7 +158,7 @@ class Pages {
           children: [
             GetPage(
               name: "/shop-list",
-              page: () => const ShopListView(),
+              page: () => ShopListView(),
               bindings: [ShopBinding()],
             ),
             GetPage(

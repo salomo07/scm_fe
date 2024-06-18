@@ -9,11 +9,11 @@ import 'package:furniro_fe/const/text_style.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../home/views/footer.dart';
 import '../controllers/shop_c.dart';
 
 class ShopDetailView extends GetView<ShopController> {
   const ShopDetailView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(      
@@ -155,7 +155,8 @@ class ShopDetailView extends GetView<ShopController> {
                           ),
                         ),
                         const Gap(92),
-                        const Divider()
+                        const Divider(),
+                        const FooterView()
                       ],
                     );
                   }                  

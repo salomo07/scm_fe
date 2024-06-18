@@ -1,26 +1,24 @@
-import 'package:count_stepper/count_stepper.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/app/modules/home/views/footer.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../../../../const/common_func.dart';
 import '../../../../widgets/custom_button.dart';
+import '../../home/views/home2_v.dart';
 import '../controllers/contact_c.dart';
 
 
 class ContactView extends GetView<ContactController> {
-  const ContactView({super.key});
-
+  ContactView({super.key});
+  Home2View homeView=const Home2View();
   @override
   Widget build(BuildContext context) {    
     return LayoutBuilder(
       builder: (context, constraints) {        
         return Scaffold(
           body: Container(
-            // height: Get.height,
             width: Get.width,
             color: whiteColor,
             child: SingleChildScrollView(
@@ -74,7 +72,7 @@ class ContactView extends GetView<ContactController> {
                   SizedBox(
                     child: Column(
                       children: [
-                      Gap(50),
+                      const Gap(50),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: SizedBox(
@@ -211,7 +209,8 @@ class ContactView extends GetView<ContactController> {
                     ),
                   ),
                   const Gap(56),
-                  guarantyBar() 
+                  guarantyBar(),
+                  const FooterView()
                 ],
               ),
             ),
@@ -326,76 +325,6 @@ class ContactView extends GetView<ContactController> {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  filterBar() {
-    return Container(
-      width: Get.width,
-      color: filterBarColor,
-      // height: 100,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: Wrap(
-          runAlignment: WrapAlignment.center,
-          spacing: 5, // Spasi antara widget dalam baris
-          runSpacing: 5, // Spasi antara baris
-          alignment: WrapAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Wrap(
-                    spacing: 24,
-                    runSpacing: 24,
-                    children: [
-                      Row(
-                        children: [
-                          const Icon(Icons.filter_list_outlined),
-                          const Gap(12),
-                          Text("Filter",style: poppins20_400(),)
-                        ],
-                      ),
-                      const SizedBox(child: Icon(Icons.grid_view_rounded)),
-                      const Icon(Icons.calendar_view_day_sharp),
-                    ],
-                  ),
-                  const Gap(20),
-                  const SizedBox(height: 50, child: VerticalDivider()),
-                  const Gap(34), // Menggunakan VerticalDivider untuk memisahkan secara vertikal
-                  Flexible(child: Text("Showing 1–16 of 32 results",style: poppins20_400(),)),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 100,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    children: [
-                      Text("Show",style: poppins20_400(),),
-                      const Gap(17),
-                      SizedBox(width: 55, child: TextFormField())
-                    ],
-                  ),
-                  const Gap(20),
-                  Row(
-                    children: [
-                      Text("Short by",style: poppins20_400(),),
-                      const Gap(17),
-                      SizedBox(width: 120, child: TextFormField())
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
         ),
       ),
     );

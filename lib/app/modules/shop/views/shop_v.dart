@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/app/modules/home/views/footer.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../const/common_func.dart';
 import '../../../routes/pages.dart';
 import '../controllers/shop_c.dart';
 
 
 class ShopView extends GetView<ShopController> {
   const ShopView({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
@@ -162,7 +162,8 @@ class ShopListView extends GetView<ShopController> {
                     ],
                   ),
                   const Gap(56),
-                  guarantyBar()
+                  guarantyBar(),
+                  const FooterView()
                 ],
               ),
             ),

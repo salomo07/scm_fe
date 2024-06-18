@@ -135,7 +135,7 @@ class CheckoutView extends GetView<ShopController> {
                                   child: CustomDropDown(
                                     stringItems: const ["Sri Lanka","Indonesia","Malay"],
                                     onChanged: (val) {
-                                      print(val);
+                                      
                                     },
                                   ),
                                 ),
@@ -168,7 +168,7 @@ class CheckoutView extends GetView<ShopController> {
                                     defaultValue: "Pilih provinsi",
                                     stringItems:const  ["Jambi"],
                                     onChanged: (val) {
-                                      print(val);
+                                      
                                     },
                                   ),
                                 ),

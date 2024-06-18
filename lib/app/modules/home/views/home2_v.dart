@@ -292,3 +292,5 @@ class Home2View extends GetView<HomeController> {
     );
   }
 }
+
+

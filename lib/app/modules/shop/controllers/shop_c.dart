@@ -59,4 +59,5 @@ class ShopController extends GetxController {
   void toDetailProduct(dynamic data){
     Get.rootDelegate.toNamed('${Paths.shop}/${data["id"]}');    
   }
+  
 }

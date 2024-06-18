@@ -4,7 +4,6 @@ import 'package:furniro_fe/const/text_style.dart';
 import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
-import '../../../../widgets/custom_button.dart';
 
 
 class AboutView extends GetView<AboutController> {
@@ -70,7 +69,7 @@ class AboutView extends GetView<AboutController> {
                   SizedBox(
                     child: Column(
                       children: [
-                      Gap(50),
+                      const Gap(50),
                       Wrap(
                         spacing: 30,
                         children: [
@@ -244,17 +243,17 @@ class AboutView extends GetView<AboutController> {
             height: 500
           ),
         ),
-        Gap(17),
+        const Gap(17),
         metaData(username,postdate,tags),
-        Gap(15),
+        const Gap(15),
         Text(title,style: poppins30_500(),),
-        Gap(12),
+        const Gap(12),
         Text(desc,style: poppins14_400(),),
-        Gap(30),
+        const Gap(30),
         InkWell(
           onTap: () {},
           child: Text("Read More",style: poppins16_400(),)),
-        Gap(30),
+        const Gap(30),
       ],
     );
   }
@@ -265,7 +264,7 @@ class AboutView extends GetView<AboutController> {
         Row(
           children: [
             Icon(Icons.person,color: greyColor4,),
-            Gap(2),
+            const Gap(2),
             Text(username,style: poppins16_400().copyWith(color: greyColor4),),
           ],
         ),
@@ -281,7 +280,7 @@ class AboutView extends GetView<AboutController> {
         Row(
           children: [
             Icon(Icons.text_rotation_angledown,color: greyColor4,),
-            Gap(2),
+            const Gap(2),
             Text(tags,style: poppins16_400().copyWith(color: greyColor4),),
           ],
         )
