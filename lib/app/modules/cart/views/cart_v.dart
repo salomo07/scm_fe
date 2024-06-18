@@ -7,10 +7,11 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../const/common_func.dart';
 import '../../../../widgets/custom_button.dart';
-import '../../shop/controllers/shop_c.dart';
+import '../../home/views/footer.dart';
+import '../controllers/cart_c.dart';
 
 
-class CartView extends GetView<ShopController> {
+class CartView extends GetView<CartController> {
   const CartView({super.key});
 
   @override
@@ -123,8 +124,7 @@ class CartView extends GetView<ShopController> {
                                   )
                                 ],
                               ),
-                            )
-                              
+                            )                              
                           ),
                           Container(
                             width:340,
@@ -172,7 +172,8 @@ class CartView extends GetView<ShopController> {
                     ),
                   ),
                   const Gap(56),
-                  guarantyBar() 
+                  guarantyBar(),
+                  const FooterView()
                 ],
               ),
             ),

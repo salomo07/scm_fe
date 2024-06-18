@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:furniro_fe/app/modules/home/views/footer.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:furniro_fe/widgets/custom_button.dart';
 import 'package:furniro_fe/widgets/custom_dropdown.dart';
@@ -78,7 +79,7 @@ class CheckoutView extends GetView<ShopController> {
                         runSpacing: 26,                  
                         children: [
                           SizedBox(
-                            width: 608,
+                            width: 508,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -339,7 +340,7 @@ class CheckoutView extends GetView<ShopController> {
                   ),
                   const Gap(56),
                   guarantyBar(),
-                  
+                  const FooterView()
                 ],
               ),
             ),

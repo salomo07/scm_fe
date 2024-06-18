@@ -5,6 +5,8 @@ import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 
+import '../../home/views/footer.dart';
+
 
 class AboutView extends GetView<AboutController> {
   const AboutView({super.key});
@@ -156,7 +158,8 @@ class AboutView extends GetView<AboutController> {
                     ),
                   ),
                   const Gap(56),
-                  guarantyBar() 
+                  guarantyBar(),
+                  const FooterView()
                 ],
               ),
             ),

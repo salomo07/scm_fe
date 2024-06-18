@@ -25,7 +25,6 @@ class Dashboard2View extends GetView<Dashboard2Controller> {
         return Container(
           color: whiteColor,
           child: SingleChildScrollView(
-            controller: controller.scrollController,
             child: Column(
               children: [
                 Stack(

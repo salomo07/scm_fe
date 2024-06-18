@@ -53,8 +53,11 @@ class ShopController extends GetxController {
       listImageRelatedProduct.add({"note":"","id":"4","image":"/furniro/images/products/4.png","name":"Grifo","desc":"Night lamp","price":"Rp 1.500.000","from":""});
     },);
   }
-  addToCart(){
-
+  addToCart(String id){
+    print(id);
+  }
+  addToCompare(String id){
+    
   }
   void toDetailProduct(dynamic data){
     Get.rootDelegate.toNamed('${Paths.shop}/${data["id"]}');    

@@ -6,6 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:furniro_fe/app/routes/pages.dart';
 import 'package:furniro_fe/const/common_func.dart';
 import 'package:furniro_fe/const/text_style.dart';
+import 'package:furniro_fe/widgets/custom_button.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -156,7 +157,7 @@ class ShopDetailView extends GetView<ShopController> {
                         ),
                         const Gap(92),
                         const Divider(),
-                        const FooterView()
+                        SizedBox(width: Get.width, child: const FooterView())
                       ],
                     );
                   }                  
@@ -281,58 +282,31 @@ class ShopDetailView extends GetView<ShopController> {
                   ],
                 ),
                 const Gap(32),
-                Row(
-                  // spacing: 15,
-                  // runSpacing: 10,
-                  children: [
-                    CountStepper(
-                      iconColor: Colors.black,
-                      defaultValue: 1,
-                      max: 10,
-                      min: 1,
-                      iconDecrementColor: Colors.black,
-                      splashRadius: 25,
-                      onPressed: (value) {
-                        controller.selectedQty.value=value;
-                      },
-                    ),
-                    const Gap(20),
-                    TextButton(
-                      onPressed: () {
-                        controller.addToCart();
-                      }, 
-                      style:TextButton.styleFrom(
-                        backgroundColor: whiteColor,                        
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(color: blackColor2,width: 1),
-                          borderRadius: BorderRadius.circular(20), // Border radius
-                        ),
-                        maximumSize: const Size(140, 64),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      CountStepper(
+                        iconColor: Colors.black,
+                        defaultValue: 1,
+                        max: 10,
+                        min: 1,
+                        iconDecrementColor: Colors.black,
+                        splashRadius: 25,
+                        onPressed: (value) {
+                          controller.selectedQty.value=value;
+                        },
                       ),
-                      child: const Text("Add To Cart",)
-                    ),
-                    const Gap(20),
-                    TextButton(
-                      onPressed: () {
-                        
-                      }, 
-                      style:TextButton.styleFrom(
-                        backgroundColor: whiteColor,                        
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(color: blackColor2,width: 1),
-                          borderRadius: BorderRadius.circular(20), // Border radius
-                        ),
-                        maximumSize: const Size(140, 64),
-                      ),
-                      child: const Row(
-                        children: [
-                          Icon(Icons.add),
-                          Gap(10),
-                          Text("Compare"),
-                        ],
-                      )
-                    ),
-                  ],
+                      const Gap(20),
+                      CustomButton(textStyle: poppins16_500().copyWith(color: blackColor2),borderRadius: 15,width: 215,height: 64,text:"Add To Cart",colorBorder: blackColor2,colorButton: whiteColor , onPressed: () {
+                        controller.addToCart(Get.parameters["id"]!);
+                      },),
+                      const Gap(20),
+                      CustomButton(textStyle: poppins16_500().copyWith(color: blackColor2),borderRadius: 15,width: 215,height: 64,text:"Compare",colorBorder: blackColor2,colorButton: whiteColor , onPressed: () {
+                        controller.addToCompare(Get.parameters["id"]!);
+                      },icon: Icon(Icons.add),),
+                    ],
+                  ),
                 ),
                 const Gap(60),
                 const Divider(),

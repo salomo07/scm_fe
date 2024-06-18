@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:furniro_fe/widgets/custom_button.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-
+import '../../../../const/datadummy.dart';
 import '../../../../const/common_func.dart';
 import '../../../../const/text_style.dart';
 import '../../../routes/pages.dart';
@@ -87,20 +87,12 @@ class Home2View extends GetView<HomeController> {
                 ),),
               ),
               bottomNavigationBar: !isDesktop(Get.width)?BottomNavigationBar(
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.business),
-                    label: 'Business',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.school),
-                    label: 'School',
-                  ),
-                ],
+                items: controller.listMenu.map((element) {
+                  return BottomNavigationBarItem(
+                    icon: Icon(iconMap[element.iconCode]) ,
+                    label: element.label,
+                  );
+                },).toList(),
               ):null,
             );
           },
