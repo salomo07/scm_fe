@@ -1,10 +1,8 @@
 import 'package:count_stepper/count_stepper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniro_fe/const/text_style.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../const/common_func.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../home/views/footer.dart';
@@ -84,7 +82,7 @@ class CartView extends GetView<CartController> {
                             child: SizedBox(
                               width: 781,
                               child: DataTable(
-                                headingRowColor: MaterialStateColor.resolveWith((states) => filterBarColor),
+                                headingRowColor: WidgetStateColor.resolveWith((states) => filterBarColor),
                                 columns: [
                                   DataColumn(label: SizedBox(width: 250, child: Text("Product",style: poppins16_500(),)),),
                                   DataColumn(label:SizedBox(width: 100, child: Text("Price",style: poppins16_500())),),

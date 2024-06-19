@@ -303,7 +303,7 @@ class ShopDetailView extends GetView<ShopController> {
                       const Gap(20),
                       CustomButton(textStyle: poppins16_500().copyWith(color: blackColor2),borderRadius: 15,width: 215,height: 64,text:"Compare",colorBorder: blackColor2,colorButton: whiteColor , onPressed: () {
                         controller.addToCompare(Get.parameters["id"]!);
-                      },icon: Icon(Icons.add),),
+                      },icon: const Icon(Icons.add),),
                     ],
                   ),
                 ),

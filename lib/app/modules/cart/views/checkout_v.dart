@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniro_fe/app/modules/home/views/footer.dart';
 import 'package:furniro_fe/const/text_style.dart';
@@ -7,7 +6,6 @@ import 'package:furniro_fe/widgets/custom_dropdown.dart';
 import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../const/common_func.dart';
 import '../../home/views/guarantybar.dart';
 import '../../shop/controllers/shop_c.dart';

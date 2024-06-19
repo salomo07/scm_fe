@@ -7,7 +7,6 @@ import 'package:furniro_fe/widgets/custom_textformfield.dart';
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import '../../../../widgets/custom_button.dart';
-import '../../home/views/home2_v.dart';
 import '../controllers/contact_c.dart';
 
 
@@ -23,6 +22,7 @@ class ContactView extends GetView<ContactController> {
             color: whiteColor,
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Stack(
                     children: [
@@ -87,7 +87,6 @@ class ContactView extends GetView<ContactController> {
                         ),
                       ),
                       SizedBox(
-                        // width: 1058,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Wrap(
@@ -95,61 +94,58 @@ class ContactView extends GetView<ContactController> {
                             children: [
                               SizedBox(
                                 width: 393,
-                                child: ColoredBox(
-                                  color: filterBarColor,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      const Gap(50),
-                                      Row(                                        
-                                        children: [
-                                          const Icon(Icons.map),
-                                          const Gap(20),
-                                          SizedBox(
-                                            width: 212,
-                                            child: Column(
-                                              children: [
-                                                Text("Address",style: poppins24_500(),),
-                                                Text("236 5th SE Avenue, New York NY10000, United States",style: poppins16_400(),),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      const Gap(42),
-                                      Row(
-                                        children: [
-                                          const Icon(Icons.phone),
-                                          const Gap(20),
-                                          SizedBox(
-                                            width: 212,
-                                            child: Column(
-                                              children: [
-                                                Text("Phone",style: poppins24_500(),),
-                                                Text("Mobile: +(84) 546-6789\nHotline: +(84) 456-6789",style: poppins16_400(),),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      const Gap(42),
-                                      Row(
-                                        children: [
-                                          const Icon(Icons.timer_outlined),
-                                          const Gap(20),
-                                          SizedBox(
-                                            width: 212,
-                                            child: Column(
-                                              children: [
-                                                Text("Working Time",style: poppins24_500(),),
-                                                Text("Monday-Friday: 9:00 - 22:00\nSaturday-Sunday: 9:00 - 21:00",style: poppins16_400(),),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Gap(50),
+                                    Row(                                        
+                                      children: [
+                                        const Icon(Icons.map),
+                                        const Gap(20),
+                                        SizedBox(
+                                          width: 212,
+                                          child: Column(
+                                            children: [
+                                              Text("Address",style: poppins24_500(),),
+                                              Text("236 5th SE Avenue, New York NY10000, United States",style: poppins16_400(),),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    const Gap(42),
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.phone),
+                                        const Gap(20),
+                                        SizedBox(
+                                          width: 212,
+                                          child: Column(
+                                            children: [
+                                              Text("Phone",style: poppins24_500(),),
+                                              Text("Mobile: +(84) 546-6789\nHotline: +(84) 456-6789",style: poppins16_400(),),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    const Gap(42),
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.timer_outlined),
+                                        const Gap(20),
+                                        SizedBox(
+                                          width: 212,
+                                          child: Column(
+                                            children: [
+                                              Text("Working Time",style: poppins24_500(),),
+                                              Text("Monday-Friday: 9:00 - 22:00\nSaturday-Sunday: 9:00 - 21:00",style: poppins16_400(),),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  ],
                                 ),
                               ),
                               SizedBox(
@@ -212,6 +208,7 @@ class ContactView extends GetView<ContactController> {
                   ),
                   const Gap(56),
                   const GuarantyBar(),
+                  // SizedBox(width: Get.width,child: ),
                   const FooterView()
                 ],
               ),

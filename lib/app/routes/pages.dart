@@ -128,7 +128,7 @@ class Pages {
         ),
         GetPage(
           name: Paths.contact,
-          page: () => ContactView(),
+          page: () => const ContactView(),
           transition: Transition.size,
           bindings: [ContactBinding()],
         ),
@@ -158,7 +158,7 @@ class Pages {
           children: [
             GetPage(
               name: "/shop-list",
-              page: () => ShopListView(),
+              page: () => const ShopListView(),
               bindings: [ShopBinding()],
             ),
             GetPage(

@@ -18,7 +18,7 @@ class EnsureAuthedMiddleware extends GetMiddleware {
       final newRoute = Paths.LOGIN_THEN(route.currentPage!.name);
       return GetNavConfig.fromRoute(newRoute);
     }
-    print("3 ${route.currentPage!.name!}");
+    print("3 ${route.currentPage!.name}");
     return await super.redirectDelegate(route);
   }
 }
@@ -35,7 +35,7 @@ class EnsureNotAuthedMiddleware extends GetMiddleware {
       print("Kedua");
       return GetNavConfig.fromRoute(Paths.login);
     }
-    print("Ketiga ${route}");
+    print("Ketiga $route");
     return await super.redirectDelegate(route);
   }
 }

@@ -55,7 +55,7 @@ class ShopController extends GetxController {
     },);
   }
   addToCart(String id){
-    print(id);
+    
   }
   addToCompare(String id){
     

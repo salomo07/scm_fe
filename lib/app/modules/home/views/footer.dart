@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +20,6 @@ class FooterView extends GetView<HomeController> {
         const Divider(),
         const Gap(48),
         SizedBox(
-          width: Get.width,
           height: 500,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
